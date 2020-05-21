@@ -105,7 +105,7 @@ class InputForm(Form):
         validators=[validators.InputRequired()])
 
     RIN1 = TextAreaField(
-        label='10. If yes, describe the intervention. Please considere describe the kind of stimuli used (eg.:presented on a screen, many different trials; with context information (video, stories, virtual reality) or interactive tasks with peers) and where is the intervention taking place (e.g.: in the lab or clinical facilities; lab which looks naturalistic (e.g. in lab classroom), ambulatory patients, institutionalized subjects or on the classroom or the home with minimal researcher intervention on the environmen).) ',
+        label='10. If yes, describe the intervention. Please considere describe the kind of stimuli used (eg.:presented on a screen, many different trials; with context information (video, stories, virtual reality) or interactive tasks with peers) and where is the intervention taking place (e.g.: in the lab or clinical facilities; lab which looks naturalistic (e.g. in lab classroom), ambulatory patients, institutionalized subjects or on the classroom or the home with minimal researcher intervention on the environmen).',
         default='No intervention')
 
     Q9 = RadioField(
