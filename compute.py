@@ -7,7 +7,7 @@ def visualize_series(
     import numpy as np
 
 
-    labels = ['"Classic"', 'Nat.', 'Fully Nat.']
+    labels = ['CL', 'PN', 'FN']
 
     Q2to10=[Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10]
     # Translate to factor values
@@ -24,9 +24,9 @@ def visualize_series(
     #TotScore = area/PerEquilArea
 
     textstr = '\n'.join((
-    r'$\mathrm{C}=%.0f$' % (values[0]*100, ),
-    r'$\mathrm{Nat}=%.0f$' % (values[1]*100, ),
-    r'$\mathrm{FNat}=%.0f$' % (values[2]*100, )))
+    r'$\mathrm{CL}=%.0f$%%' % (values[0]*100, ),
+    r'$\mathrm{PN}=%.0f$%%' % (values[1]*100, ),
+    r'$\mathrm{FN}=%.0f$%%' % (values[2]*100, )))
     #,    r'$\mathrm{TE}=%.2f$' % (TotScore, )))
 
     num_vars = len(labels)
@@ -86,6 +86,8 @@ def visualize_series(
     props = dict(boxstyle='round', facecolor='#e08162', alpha=0.25)
     ax.text(-0.05, 1.07, textstr, transform=ax.transAxes, fontsize=14,
         verticalalignment='top', bbox=props)
+    ax.text(-0.03, -0.05, 'CL = Classic Laboratory-based; PL = Partially Naturalistic; FN = Fully Naturalistic',transform=ax.transAxes, fontsize=9,
+        verticalalignment='top')
 
     from io import BytesIO
     figfile = BytesIO()

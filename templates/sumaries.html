@@ -120,6 +120,21 @@
             <div class="question">
                 <div class="title">
                     <span class="title">
+                        {{ form.IN1.label }}
+                    </span>
+                </div>
+
+                <div class="answer">
+                    {{ dict(form.IN1.choices).get(form.IN1.data) }}
+                </div>
+
+                {{ form.RIN1 }}
+
+            </div>
+
+            <div class="question">
+                <div class="title">
+                    <span class="title">
                         {{ form.Q9.label }}
                     </span>
                 </div>
