@@ -14,7 +14,7 @@ class InputForm(Form):
                  (3,'Fully naturalistic [Social context or dependent on social interactions, such as classroom-based testing or social interaction outcomes]')],
         default=1,
         validators=[validators.InputRequired()])
-    TQ2 = TextAreaField(
+    TQ2 = TextField(
         label='Please justify your answer below.',
         default='No comment')
     
@@ -28,7 +28,7 @@ class InputForm(Form):
         default=1,
         validators=[validators.InputRequired()])
 
-    TQ3 = TextAreaField(
+    TQ3 = TextField(
         label='Please justify your answer below.',
         default='No comment')
 
@@ -41,7 +41,7 @@ class InputForm(Form):
         default=1,
         validators=[validators.InputRequired()])
     
-    TQ4 = TextAreaField(
+    TQ4 = TextField(
         label='Please justify your answer below.',
         default='No comment')
 
@@ -54,7 +54,7 @@ class InputForm(Form):
         default=1,
         validators=[validators.InputRequired()])
 
-    TQ5 = TextAreaField(
+    TQ5 = TextField(
         label='Please justify your answer below.',
         default='No comment')
 
@@ -67,7 +67,7 @@ class InputForm(Form):
         default=1,
         validators=[validators.InputRequired()])
 
-    TQ6 = TextAreaField(
+    TQ6 = TextField(
         label='Please justify your answer below.',
         default='No comment')
 
@@ -80,7 +80,7 @@ class InputForm(Form):
         default=1,
         validators=[validators.InputRequired()])
     
-    TQ7 = TextAreaField(
+    TQ7 = TextField(
         label='Please justify your answer below.',
         default='No comment')
 
@@ -93,7 +93,7 @@ class InputForm(Form):
         default=1,
         validators=[validators.InputRequired()])
 
-    TQ8 = TextAreaField(
+    TQ8 = TextField(
         label='Please justify your answer below.',
         default='No comment')
 
@@ -130,7 +130,7 @@ class InputForm(Form):
         default=1,
         validators=[validators.InputRequired()])
 
-    TQ10 = TextAreaField(
+    TQ10 = TextField(
         label='Please justify your answer below.',
         default='No comment')
 
