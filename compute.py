@@ -18,8 +18,8 @@ def visualize_series(
 
     # Calculate total score as result area / maximum area
     # Goes grom [0-1], 0 is for 'pure' factor, 1 to perfectly equilibrated experiment
-    area = (FA*FB*np.sin(120))/2 + (FB*FC*np.sin(120))/2 +(FA*FC*np.sin(120))/2
-    PerEquilArea = ((3/9*3/9*np.sin(120))/2)*3 # Maximun posible area (all load the same weight)
+    #area = (FA*FB*np.sin(120))/2 + (FB*FC*np.sin(120))/2 +(FA*FC*np.sin(120))/2
+    #PerEquilArea = ((3/9*3/9*np.sin(120))/2)*3 # Maximun posible area (all load the same weight)
 
     #TotScore = area/PerEquilArea
 
