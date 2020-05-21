@@ -109,7 +109,7 @@ class InputForm(Form):
         default='No intervention')
 
     Q9 = RadioField(
-        label='9. Are non-research stakeholders involved? (teachers, parents, institutions, clinicians)',
+        label='11. Are non-research stakeholders involved? (teachers, parents, institutions, clinicians)',
         coerce=int,
         choices=[(1,'Classic laboratory-based [No involvement from other stakeholders]'),
                  (2,'Partially naturalistic [Involvement in intervention delivery]'),
@@ -122,7 +122,7 @@ class InputForm(Form):
         default='No comment')
 
     Q10 = RadioField(
-        label='10. How can your conclusions inform an intervention component?',
+        label='12. How can your conclusions inform an intervention component?',
         coerce=int,
         choices=[(1,'Classic laboratory-based [In the theoretical level giving physiological background to the process]'),
                  (2,'Partially naturalistic [In a subject-based level, generating personal training/learning tools for individuals]'),
@@ -135,5 +135,5 @@ class InputForm(Form):
         default='No comment')
 
     TQF = TextAreaField(
-        label='Lastly, please indicate in which category (classic laboratory-based, partially naturalistic, and fully naturalistic) you see your research fits best and state the reasons.',
+        label='13. Lastly, please indicate in which category (classic laboratory-based, partially naturalistic, and fully naturalistic) you see your research fits best and state the reasons.',
         default='No comment')
