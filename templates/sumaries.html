@@ -1,0 +1,171 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">
+        {{ form.Q1.data }}
+    </h1>
+    <p class="lead">Summary</p>
+    <hr class="my-4">
+    <section class="seccion">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+        <div class="container" id="contact">
+
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        {{ form.Q2.label }}
+                    </span>
+                </div>
+
+                <div class="answer">
+                    {{ dict(form.Q2.choices).get(form.Q2.data) }}
+                </div>
+
+                {{ form.TQ2 }}
+
+            </div>
+
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        {{ form.Q3.label }}
+                    </span>
+                </div>
+
+                <div class="answer">
+                    {{ dict(form.Q3.choices).get(form.Q3.data) }}
+                </div>
+
+                {{ form.TQ3 }}
+
+            </div>
+
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        {{ form.Q4.label }}
+                    </span>
+                </div>
+
+                <div class="answer">
+                    {{ dict(form.Q4.choices).get(form.Q4.data) }}
+                </div>
+
+                {{ form.TQ4 }}
+
+            </div>
+
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        {{ form.Q5.label }}
+                    </span>
+                </div>
+
+                <div class="answer">
+                    {{ dict(form.Q5.choices).get(form.Q5.data) }}
+                </div>
+
+                {{ form.TQ5 }}
+
+            </div>
+
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        {{ form.Q6.label }}
+                    </span>
+                </div>
+
+                <div class="answer">
+                    {{ dict(form.Q6.choices).get(form.Q6.data) }}
+                </div>
+
+                {{ form.TQ6 }}
+
+            </div>
+
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        {{ form.Q7.label }}
+                    </span>
+                </div>
+
+                <div class="answer">
+                    {{ dict(form.Q7.choices).get(form.Q7.data) }}
+                </div>
+
+                {{ form.TQ7 }}
+
+            </div>
+
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        {{ form.Q8.label }}
+                    </span>
+                </div>
+
+                <div class="answer">
+                    {{ dict(form.Q8.choices).get(form.Q8.data) }}
+                </div>
+
+                {{ form.TQ8 }}
+
+            </div>
+
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        {{ form.Q9.label }}
+                    </span>
+                </div>
+
+                <div class="answer">
+                    {{ dict(form.Q9.choices).get(form.Q9.data) }}
+                </div>
+
+                {{ form.TQ9 }}
+
+            </div>
+
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        {{ form.Q10.label }}
+                    </span>
+                </div>
+
+                <div class="answer">
+                    {{ dict(form.Q10.choices).get(form.Q10.data) }}
+                </div>
+
+                {{ form.TQ10 }}
+
+            </div>
+
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        Final comment
+                    </span>
+                </div>
+                {{ form.TQF }}
+
+            </div>
+
+
+            {% if result != None %}
+                <img src="data:image/png;base64,{{ result }}" class="resize2" >
+            {% endif %}
+
+
+
+
+
+        </div>
+</div>
+{% endblock %}
