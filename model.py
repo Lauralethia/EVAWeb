@@ -132,7 +132,7 @@ class InputForm(Form):
         default=1,
         validators=[validators.InputRequired()])
 
-    TQ13 = TextAreaField(
+    TQ13 = TextField(
         label='Please justify your answer below.',
         default='No comment')
 
