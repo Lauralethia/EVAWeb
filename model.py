@@ -27,7 +27,6 @@ class InputForm(Form):
                  (3,'Fully naturalistic [Social network analysis, in classroom behavior, EMA about social behavior]')],
         default=1,
         validators=[validators.InputRequired()])
-
     TQ3 = TextField(
         label='Please justify your answer below.',
         default='No comment')
@@ -39,8 +38,7 @@ class InputForm(Form):
                  (2,'Partially naturalistic [Stimuli that have context information, or meaning is dependent on the context (video, stories, virtual reality)]'),
                  (3,'Fully naturalistic [Interactive tasks with peers]')],
         default=1,
-        validators=[validators.InputRequired()])
-    
+        validators=[validators.InputRequired()])   
     TQ4 = TextField(
         label='Please justify your answer below.',
         default='No comment')
@@ -53,7 +51,6 @@ class InputForm(Form):
                  (3,'Fully naturalistic [Nationally representative sample by demographics and socio-economic status]')],
         default=1,
         validators=[validators.InputRequired()])
-
     TQ5 = TextField(
         label='Please justify your answer below.',
         default='No comment')
@@ -66,7 +63,6 @@ class InputForm(Form):
                  (3,'Fully naturalistic [In the classroom or the home with minimal researcher intervention on the environment]')],
         default=1,
         validators=[validators.InputRequired()])
-
     TQ6 = TextField(
         label='Please justify your answer below.',
         default='No comment')
@@ -79,7 +75,6 @@ class InputForm(Form):
                  (3,'Fully naturalistic [My study evaluates impact on real world grades/ test scores, incarceration, EMA or social network analysis]')],
         default=1,
         validators=[validators.InputRequired()])
-    
     TQ7 = TextField(
         label='Please justify your answer below.',
         default='No comment')
@@ -92,7 +87,6 @@ class InputForm(Form):
                  (3,'Fully naturalistic [Involvement in study design / implementation]')],
         default=1,
         validators=[validators.InputRequired()])
-
     TQ8 = TextField(
         label='Please justify your answer below.',
         default='No comment')
@@ -103,13 +97,34 @@ class InputForm(Form):
         choices=[(1,'yes'),(2,'no')],
         default=2,
         validators=[validators.InputRequired()])
-
     RIN1 = TextAreaField(
-        label='10. If yes, describe the intervention. Please considere describe the kind of stimuli used (eg.:presented on a screen, many different trials; with context information (video, stories, virtual reality) or interactive tasks with peers) and where is the intervention taking place (e.g.: in the lab or clinical facilities; lab which looks naturalistic (e.g. in lab classroom), ambulatory patients, institutionalized subjects or on the classroom or the home with minimal researcher intervention on the environmen).',
+        label='10. If R9 is yes. Describe the intervention. Please considere describe the kind of stimuli used (eg.:presented on a screen, many different trials; with context information (video, stories, virtual reality) or interactive tasks with peers) and where is the intervention taking place (e.g.: in the lab or clinical facilities; lab which looks naturalistic (e.g. in lab classroom), ambulatory patients, institutionalized subjects or on the classroom or the home with minimal researcher intervention on the environmen).',
         default='No intervention')
 
-    Q9 = RadioField(
-        label='11. Are non-research stakeholders involved? (teachers, parents, institutions, clinicians)',
+    Q11 = RadioField(
+        label='11. If R9 is yes. What kind of stimuli are you using for the intervention? How naturalistic are your stimuli?',
+        coerce=int,
+        choices=[(1,'Classic laboratory-based [Static stimuli presented on a screen, many different trials using the same stimuli]'),
+                 (2,'Partially naturalistic [Stimuli that have context information, or meaning is dependent on the context (video, stories, virtual reality)]'),
+                 (3,'Fully naturalistic [Interactive tasks with peers]'),
+                 (4,'No intervention component')],
+        validators=[validators.InputRequired()])
+    TQ11 = TextField(
+        label='Please justify your answer below.',
+        default='No comment')
+
+    Q12 = RadioField(
+        label='12. If R9 is yes. Where is the intervention taking place?',
+        coerce=int,
+        choices=[(1,'Classic laboratory-based [In the lab or clinical facilities]'),
+                 (2,'Partially naturalistic [In the lab which looks naturalistic (e.g. in lab classroom), ambulatory patients or institutionalized subjects]'),
+                 (3,'Fully naturalistic [In the classroom or the home with minimal researcher intervention on the environment]'),
+                 (4,'No intervention component')],
+        default=4,
+        validators=[validators.InputRequired()])
+
+    Q13 = RadioField(
+        label='13. Are non-research stakeholders involved? (teachers, parents, institutions, clinicians)',
         coerce=int,
         choices=[(1,'Classic laboratory-based [No involvement from other stakeholders]'),
                  (2,'Partially naturalistic [Involvement in intervention delivery]'),
@@ -117,23 +132,10 @@ class InputForm(Form):
         default=1,
         validators=[validators.InputRequired()])
 
-    TQ9 = TextAreaField(
-        label='Please justify your answer below.',
-        default='No comment')
-
-    Q10 = RadioField(
-        label='12. How can your conclusions inform an intervention component?',
-        coerce=int,
-        choices=[(1,'Classic laboratory-based [In the theoretical level giving physiological background to the process]'),
-                 (2,'Partially naturalistic [In a subject-based level, generating personal training/learning tools for individuals]'),
-                 (3,'Fully naturalistic [In a hands-on level, generating stakeholders/community tools for community proposes]')],
-        default=1,
-        validators=[validators.InputRequired()])
-
-    TQ10 = TextField(
+    TQ13 = TextAreaField(
         label='Please justify your answer below.',
         default='No comment')
 
     TQF = TextAreaField(
-        label='13. Lastly, please indicate in which category (classic laboratory-based, partially naturalistic, and fully naturalistic) you see your research fits best and state the reasons.',
+        label='14. Lastly, please indicate in which category (classic laboratory-based, partially naturalistic, and fully naturalistic) you see your research fits best and state the reasons.',
         default='No comment')

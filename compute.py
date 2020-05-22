@@ -1,6 +1,6 @@
 def visualize_series(
     Q1, # string, title
-    Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10 # values from questions, 1 2 or 3
+    Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q11,Q12,Q13 # values from questions, 1 2 or 3
     ):
     # Turn independent variable into sympy symbol, stored in x
     import matplotlib.pyplot as plt
@@ -9,11 +9,12 @@ def visualize_series(
 
     labels = ['CL', 'PN', 'FN']
 
-    Q2to10=[Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10]
+    Q2to10=[Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q11,Q12,Q13]
     # Translate to factor values
-    FA = Q2to10.count(1)/9 #1-A: Control factor
-    FB = Q2to10.count(2)/9 #2-B: Subjective factor
-    FC = Q2to10.count(3)/9 #3-C: Social factor
+    Tot =  Q2to10.count(1) + Q2to10.count(2) + Q2to10.count(3)
+    FA = Q2to10.count(1)/Tot #1-A: Control factor
+    FB = Q2to10.count(2)/Tot #2-B: Subjective factor
+    FC = Q2to10.count(3)/Tot #3-C: Social factor
     values = [FA,FB,FC]
 
     # Calculate total score as result area / maximum area
@@ -99,5 +100,5 @@ def visualize_series(
 
 if __name__ == '__main__':
     visualize_series(Q1="st", Q2=1, Q3=1, Q4=1, Q5=1, 
-        Q6=1, Q7=1, Q8=1, Q9=1, Q10=1)
+        Q6=1, Q7=1, Q8=1, Q11=1, Q12=1, Q13=1)
 
