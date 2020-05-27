@@ -34,7 +34,7 @@ class InputForm(Form):
     Q4 = RadioField(
         label='4. Describe the kind of stimuli used in your tasks. How naturalistic are your stimuli?',
         coerce=int,
-        choices=[(1,'Classic laboratory-based [Static stimuli presented on a screen, many different trials using the same stimuli]'),
+        choices=[(1,'Classic laboratory-based [Static stimuli presented separately on a screen, many different trials using the same stimuli]'),
                  (2,'Partially naturalistic [Stimuli that have context information, or meaning is dependent on the context (video, stories, virtual reality)]'),
                  (3,'Fully naturalistic [Interactive tasks with peers]')],
         default=1,
@@ -60,7 +60,7 @@ class InputForm(Form):
         coerce=int,
         choices=[(1,'Classic laboratory-based [In the lab or clinical facilities]'),
                  (2,'Partially naturalistic [In the lab which looks naturalistic (e.g. in lab classroom), ambulatory patients or institutionalized subjects]'),
-                 (3,'Fully naturalistic [In the classroom or the home with minimal researcher intervention on the environment]')],
+                 (3,'Fully naturalistic [In the classroom, public place (e.g. museum) or the home with minimal researcher intervention on the environment]')],
         default=1,
         validators=[validators.InputRequired()])
     TQ6 = TextField(
