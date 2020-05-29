@@ -1,6 +1,10 @@
 def visualize_series(
     Q1, # string, title
-    Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q11,Q12,Q13 # values from questions, 1 2 or 3
+    Q2,
+    Q3,Q4,Q5,Q6,
+    Q3b,Q4b,Q5b,Q6b,
+    Q3c,Q4c,Q5c,Q6c,
+    Q7,Q8,Q11,Q12,Q13 # values from questions, 1 2 3 or 4
     ):
     # Turn independent variable into sympy symbol, stored in x
     import matplotlib.pyplot as plt
@@ -9,7 +13,7 @@ def visualize_series(
 
     labels = ['CL', 'PN', 'FN']
 
-    Q2to10=[Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q11,Q12,Q13]
+    Q2to10=[Q2,Q3,Q4,Q5,Q6,Q3b,Q4b,Q5b,Q6b,Q3c,Q4c,Q5c,Q6c,Q7,Q8,Q11,Q12,Q13]
     # Translate to factor values
     Tot =  Q2to10.count(1) + Q2to10.count(2) + Q2to10.count(3)
     FA = Q2to10.count(1)/Tot #1-A: Control factor

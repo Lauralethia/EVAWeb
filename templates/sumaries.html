@@ -26,7 +26,8 @@
                 {{ form.TQ2 }}
 
             </div>
-
+            <!--More than one task section-->
+            <!-- one task -->
             <div class="question">
                 <div class="title">
                     <span class="title">
@@ -86,6 +87,129 @@
                 {{ form.TQ6 }}
 
             </div>
+
+            <!-- second task -->
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        {{ form.Q3b.label }}
+                    </span>
+                </div>
+
+                <div class="answer">
+                    {{ dict(form.Q3b.choices).get(form.Q3b.data) }}
+                </div>
+
+                {{ form.TQ3b }}
+
+            </div>
+
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        {{ form.Q4b.label }}
+                    </span>
+                </div>
+
+                <div class="answer">
+                    {{ dict(form.Q4b.choices).get(form.Q4b.data) }}
+                </div>
+
+                {{ form.TQ4b }}
+
+            </div>
+
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        {{ form.Q5b.label }}
+                    </span>
+                </div>
+
+                <div class="answer">
+                    {{ dict(form.Q5b.choices).get(form.Q5b.data) }}
+                </div>
+
+                {{ form.TQ5b }}
+
+            </div>
+
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        {{ form.Q6b.label }}
+                    </span>
+                </div>
+
+                <div class="answer">
+                    {{ dict(form.Q6b.choices).get(form.Q6b.data) }}
+                </div>
+
+                {{ form.TQ6b }}
+
+            </div>
+
+            <!-- third task -->
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        {{ form.Q3c.label }}
+                    </span>
+                </div>
+
+                <div class="answer">
+                    {{ dict(form.Q3c.choices).get(form.Q3c.data) }}
+                </div>
+
+                {{ form.TQ3c }}
+
+            </div>
+
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        {{ form.Q4c.label }}
+                    </span>
+                </div>
+
+                <div class="answer">
+                    {{ dict(form.Q4c.choices).get(form.Q4c.data) }}
+                </div>
+
+                {{ form.TQ4c }}
+
+            </div>
+
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        {{ form.Q5c.label }}
+                    </span>
+                </div>
+
+                <div class="answer">
+                    {{ dict(form.Q5c.choices).get(form.Q5c.data) }}
+                </div>
+
+                {{ form.TQ5c }}
+
+            </div>
+
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        {{ form.Q6c.label }}
+                    </span>
+                </div>
+
+                <div class="answer">
+                    {{ dict(form.Q6c.choices).get(form.Q6c.data) }}
+                </div>
+
+                {{ form.TQ6c }}
+
+            </div>
+            <!--More than one task section-->
 
             <div class="question">
                 <div class="title">
@@ -189,7 +313,7 @@
 
 
             {% if result != None %}
-                <img src="data:image/png;base64,{{ result }}" class="resize2" >
+            <img src="data:image/png;base64,{{ result }}" class="resize2">
             {% endif %}
 
 

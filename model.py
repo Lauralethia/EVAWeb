@@ -19,6 +19,8 @@ class InputForm(Form):
         default='No comment')
     
 
+#########################################################################################################################################################
+        # TASK Q1
     Q3 = RadioField(
         label='3. Describe your tasks.',
         coerce=int,
@@ -66,6 +68,121 @@ class InputForm(Form):
     TQ6 = TextField(
         label='Please justify your answer below.',
         default='No comment')
+        
+        # TASK Q2
+
+    Q3b = RadioField(
+        label='3.2 If you have a second task, describe your tasks.',
+        coerce=int,
+        choices=[(1,'Classic laboratory-based [Measuring reaction times to faces presented on a screen]'),
+                 (2,'Partially naturalistic [Behavior in response to people being observed]'),
+                 (3,'Fully naturalistic [Social network analysis, in classroom behavior, EMA about social behavior]'),
+                 (4,'No second task')],
+        default=4,
+        validators=[validators.InputRequired()])
+    TQ3b = TextField(
+        label='Please justify your answer below.',
+        default='No comment')
+        
+
+    Q4b = RadioField(
+        label='4.2 If you have a second task, describe the kind of stimuli used in your tasks. How naturalistic are your stimuli?',
+        coerce=int,
+        choices=[(1,'Classic laboratory-based [Static stimuli presented separately on a screen, many different trials using the same stimuli]'),
+                 (2,'Partially naturalistic [Stimuli that have context information, or meaning is dependent on the context (video, stories, virtual reality)]'),
+                 (3,'Fully naturalistic [Interactive tasks with peers]'),
+                 (4,'No second task')],
+
+        default=4,
+        validators=[validators.InputRequired()])   
+    TQ4b = TextField(
+        label='Please justify your answer below.',
+        default='No comment')
+
+    Q5b = RadioField(
+        label='5.2 If you have a second task, how does sample recruitment take place? Is your sample representative of your region? How important do you think this is for your particular question?',
+        coerce=int,
+        choices=[(1,'Classic laboratory-based [Convenience sample (psychology students)]'),
+                 (2,'Partially naturalistic [Community-based recruitment]'),
+                 (3,'Fully naturalistic [Nationally representative sample by demographics and socio-economic status]'),
+                 (4,'No second task')],
+
+        default=4,
+        validators=[validators.InputRequired()])
+    TQ5b = TextField(
+        label='Please justify your answer below.',
+        default='No comment')
+
+    Q6b = RadioField(
+        label='6.2 If you have a second task, where is the testing taking place? (lab, home, classroom, public space e.g. museum or library)',
+        coerce=int,
+        choices=[(1,'Classic laboratory-based [In the lab or clinical facilities]'),
+                 (2,'Partially naturalistic [In the lab which looks naturalistic (e.g. in lab classroom), ambulatory patients or institutionalized subjects]'),
+                 (3,'Fully naturalistic [In the classroom, public place (e.g. museum) or the home with minimal researcher intervention on the environment]'),
+                 (4,'No second task')],
+        default=4,
+        validators=[validators.InputRequired()])
+    TQ6b = TextField(
+        label='Please justify your answer below.',
+        default='No comment')
+
+        # TASK Q3
+    Q3c = RadioField(
+        label='3.3 If you have a third task, describe your tasks.',
+        coerce=int,
+        choices=[(1,'Classic laboratory-based [Measuring reaction times to faces presented on a screen]'),
+                 (2,'Partially naturalistic [Behavior in response to people being observed]'),
+                 (3,'Fully naturalistic [Social network analysis, in classroom behavior, EMA about social behavior]'),
+                 (4,'No third task')],
+        default=4,
+        validators=[validators.InputRequired()])
+    TQ3c = TextField(
+        label='Please justify your answer below.',
+        default='No comment')
+        
+
+    Q4c = RadioField(
+        label='4.3 If you have a second task, describe the kind of stimuli used in your tasks. How naturalistic are your stimuli?',
+        coerce=int,
+        choices=[(1,'Classic laboratory-based [Static stimuli presented separately on a screen, many different trials using the same stimuli]'),
+                 (2,'Partially naturalistic [Stimuli that have context information, or meaning is dependent on the context (video, stories, virtual reality)]'),
+                 (3,'Fully naturalistic [Interactive tasks with peers]'),
+                 (4,'No third task')],
+
+        default=4,
+        validators=[validators.InputRequired()])   
+    TQ4c = TextField(
+        label='Please justify your answer below.',
+        default='No comment')
+
+    Q5c = RadioField(
+        label='5.2 If you have a third task, how does sample recruitment take place? Is your sample representative of your region? How important do you think this is for your particular question?',
+        coerce=int,
+        choices=[(1,'Classic laboratory-based [Convenience sample (psychology students)]'),
+                 (2,'Partially naturalistic [Community-based recruitment]'),
+                 (3,'Fully naturalistic [Nationally representative sample by demographics and socio-economic status]'),
+                 (4,'No third task')],
+
+        default=4,
+        validators=[validators.InputRequired()])
+    TQ5c = TextField(
+        label='Please justify your answer below.',
+        default='No comment')
+
+    Q6c = RadioField(
+        label='6.3 If you have a third task, where is the testing taking place? (lab, home, classroom, public space e.g. museum or library)',
+        coerce=int,
+        choices=[(1,'Classic laboratory-based [In the lab or clinical facilities]'),
+                 (2,'Partially naturalistic [In the lab which looks naturalistic (e.g. in lab classroom), ambulatory patients or institutionalized subjects]'),
+                 (3,'Fully naturalistic [In the classroom, public place (e.g. museum) or the home with minimal researcher intervention on the environment]'),
+                 (4,'No third task')],
+        default=4,
+        validators=[validators.InputRequired()])
+    TQ6c = TextField(
+        label='Please justify your answer below.',
+        default='No comment')
+#########################################################################################################################################################################
+
 
     Q7 = RadioField(
         label='7. What is your study measuring?',
@@ -78,6 +195,7 @@ class InputForm(Form):
     TQ7 = TextField(
         label='Please justify your answer below.',
         default='No comment')
+
 
     Q8 = RadioField(
         label='8. Are non-research stakeholders involved? (teachers, parents, institutions, clinicians)',

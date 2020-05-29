@@ -14,8 +14,10 @@ def home():
 def formulary():
     form = InputForm(request.form)
     if request.method == 'POST' and form.validate():
-        result = visualize_series(Q1=form.Q1.data,Q2=form.Q2.data,Q3=form.Q3.data,
-                                  Q4=form.Q4.data,Q5=form.Q5.data,Q6=form.Q6.data,
+        result = visualize_series(Q1=form.Q1.data,Q2=form.Q2.data,
+                                  Q3=form.Q3.data, Q4=form.Q4.data,Q5=form.Q5.data,Q6=form.Q6.data,
+                                  Q3b=form.Q3b.data,Q4b=form.Q4b.data,Q5b=form.Q5b.data,Q6b=form.Q6b.data,
+                                  Q3c=form.Q3c.data,Q4c=form.Q4b.data,Q5c=form.Q5b.data,Q6c=form.Q6c.data,
                                   Q7=form.Q7.data,Q8=form.Q8.data,Q11=form.Q11.data,
                                   Q12=form.Q12.data,Q13=form.Q13.data)
         return render_template("sumaries.html", form=form, result=result)
