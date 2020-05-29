@@ -103,6 +103,9 @@ def visualize_series(
     return figdata_png.decode('utf8')
 
 if __name__ == '__main__':
-    visualize_series(Q1="st", Q2=1, Q3=1, Q4=1, Q5=1, 
-        Q6=1, Q7=1, Q8=1, Q11=1, Q12=1, Q13=1)
+    visualize_series(Q1="st", Q2=1, 
+    Q3=1, Q4=1, Q5=1, Q6=1,
+    Q3b=4, Q4b=4, Q5b=4, Q6b=4,
+    Q3c=4, Q4c=4, Q5c=4, Q6c=4,
+    Q7=1, Q8=1, Q11=1, Q12=1, Q13=1)
 

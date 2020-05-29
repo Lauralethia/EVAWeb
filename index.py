@@ -27,6 +27,9 @@ def formulary():
     print(request.method, [field.errors for field in form])
     return render_template("formulary.html", form=form, result=result,textInfo = textInfo)
 
+@app.route('/moreinfo')
+def moreinfo():
+    return render_template('moreinfo.html')
 
 @app.route('/Feedback', methods=['GET', 'POST'])
 def comments():
