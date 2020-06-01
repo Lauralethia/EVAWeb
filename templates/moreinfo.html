@@ -1,35 +1,223 @@
 {% extends "layout.html" %}
 
 {% block content %}
+
 <div class="jumbotron">
     <h1 class="display-4">EVA additional information</h1>
     <p class="lead">Examples and more </p>
     <hr class="my-4">
     <section class="seccion">
-        <h1> More examples</h1>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        <div class="container">  
+        <fieldset id="contact">
+            <button name="submit" type="submit" id="contact-submit" data-submit="...Sending"> More examples</button>
+        </fieldset>
         <article>
-            <h3> 2. Which methods do you base your main conclusions on? Examples:</h3>
-            <p class="pagraph">Classic laboratory-based: </p>
-            <p class="pagraph">Partially naturalistic: </p>
-            <p class="pagraph">Fully naturalistic: </p>
+            <h4> 3. Describe your tasks.</h4>
+            <p class="lead">Classic laboratory-based examples:</p>
+            <ul>
+                <li> <label>Perception task involving a single meaningless stimulus presented sequentially on the screen</label></li>
+                <li> <label>Working memory task for shapes presented on a screen</label>
+                </li>
+                <li></label>Inhibiting a button press to a trained stimulus</label>
+                </li>
+                <li></label>Spatial orienting task involving a single target stimulus (a shape) preceded by a single
+                    cue/distractor</label>
+                </li>
+            </ul>
+            <p class="lead">Partially naturalistic examples:</p>
+            <ul>
+                <li> <label>Memory after viewing a movie </label></li>
+                <li> <label>Selective attention task where both targets and distractors are presented in multi-stimulus arrays</label>
+                </li>
+                <li></label>Selective attention task conducted in virtual reality or a room resembling a naturalistic context (e.g. kitchen, a flat or a simple shop)</label>
+                </li>
+                <li></label>Social interaction in the lab with a confederate
+                </label>
+                </li>
+                <li></label>Using a fitbit-like motion sensor to measure daily activity
+                </label>
+                </li>
+            </ul>
+            
+            <p class="lead">Fully naturalistic examples:</p>
+            <ul>
+                <li> <label>Selective attention task where both targets and distractors are externally-driven and appear within a veridical external environment (classroom or public place like museum exhibitions)
+                </label></li>
+                <li> <label>Observing child interact with parent at home
+                </label>
+                </li>
+                <li></label>Classroom based and teacher lead cirriculum </label>
+                </li>
+            </ul>
+            
+            <h4> 4. Describe the kind of stimuli used in your tasks. How naturalistic are your stimuli?</h4>
+
+            <p class="lead">Classic laboratory-based examples:</p>
+            <ul>
+                <li> <label> Audio clips of phonemes</label></li>
+                <li> <label> Colored 2D shapes</label>
+                </li>
+                <li></label>Stimuli presented one at a time, sequentially
+                </label>
+                </li>
+                 </ul>
+            <p class="lead">Partially naturalistic examples:</p>
+            <ul>
+                <li> <label> Stimuli vary in their goal-relevance to the performed task (there are distractor and target stimuli)
+                </label></li>
+                <li> <label> Distractors or target stimulate variably different/many senses (visual/auditory, multisensory)</label>
+                </li>
+                <li></label>Distractors/targets vary in their familiarity to the observer, being unfamiliar or representing/being connected by a naturalistic object category (animate objects, tools, conspecifics)
+                </label>
+                </li>
+                <li></label> Audio or audiovideo clips of social scenarios</label>
+                </li>
+                <li></label> Watching movies or listening to stories</label>
+                </li>
+            </ul>
+            <p class="lead">Fully naturalistic examples:</p>
+            <ul>
+                <li> <label> Dynamically changing, non/repeating familiar stimuli that variably stimulate multiple senses of the observer (visual/auditory, tactile, multisensory) </label></li>
+                <li> <label> Social interactions in real-world settings</label>
+                </li>
+            </ul>
+
+            <h4> 5. Where is the testing taking place?</h4>
+
+            <p class="lead">Classic laboratory-based examples:</p>
+            <ul>
+                <li> <label> In a lab testing room</label></li>
+                <li> <label> In a M/EEG lab</label>
+                </li>
+                <li></label> In an fMRI machine/facility </label>
+                </li>
+            </ul>
+            <p class="lead">Partially naturalistic examples:</p>
+            <ul>
+                <li> <label> More naturalistic stimulation is delivered on a computer screen and/or while wearing M/EEG/fNIRS or being inside the scanner 
+                </label></li>
+                <li> <label> In schools and classrooms but not in a typical classroom setting (during a normal lesson)
+                </label>
+                </li>
+            </ul>
+            <p class="lead">Fully naturalistic examples:</p>
+            <ul>
+                <li> <label> In schools in a classroom with little to no experimenter presence and interference into teaching activitiest
+                </label></li>
+                <li> <label> Where the real-world behavior measured is natural (in the street, market, etc)</label>
+                </li>
+            </ul>
+
+            <h4> 6. What is your study measuring?</h4>
+
+            <p class="lead">Classic laboratory-based examples:</p>
+            <ul>
+                <li> <label> Response or accuracy time in rigorous, process-specific lab-based tasks
+                </label></li>
+                <li> <label> Well-understood and well-researched brain (EEG / fMRI) correlates of a specific cognitive process tested in typical conditions (e.g. an well-known Event-Related Potential component like P1 or N2pc)</label>
+                </li>
+            </ul>
+            <p class="lead">Partially naturalistic examples:</p>
+            <ul>
+                <li> <label> Analysing brain-wide mechanisms surrounding the canonical brain ‘correlate’ of a cognitive process
+                </label></li>
+                <li> <label> Parent report of child symptoms
+                </label></li>
+                <li> <label> Testing the canonical brain ‘correlate’ of a cognitive process in a non-traditional settings using more portable brain imaging tools (e.g. EEG or fNIRS):
+                </label>
+                </li>
+                        <ul>
+                            <li> <label>  In a different / multiple senses  </label></li>
+                            <li> <label>  Using a physical setup inside the testing room or virtual reality
+                            </label></li>
+                            <li> <label>  in non-traditional populations (across the lifespan; individuals with non-traditional experience like sensory impairment)  </label></li>
+
+                        </ul>
+            </ul>
+            <p class="lead">Fully naturalistic examples:</p>
+            <ul>
+                <li> <label> Testing for canonical brain ‘correlates’ using (simplified) portable brain imaging tools in veridical external environments
+                </label></li>
+                <li> <label> Grades or standardized testing</label>
+                </li>
+            </ul>
+
+            <h4>7. How does sample recruitment take place? </h4>
+
+            <p class="lead">Classic laboratory-based examples:</p>
+            <ul>
+                <li> <label> Recruiting undergraduates at a university, middle-aged white men or any arbitrary criteria </label></li>
+                <li> <label> Preclinical studies</label>
+                </li>
+            </ul>
+            <p class="lead">Partially naturalistic examples:</p>
+            <ul>
+                <li> <label> Recruiting children of professors at a university 
+                </label></li>
+                <li> <label> Recruiting an aging sample from several nearby community living facilities
+                </label>
+                </li>
+            </ul>
+            <p class="lead">Fully naturalistic examples:</p>
+            <ul>
+                <li> <label> Recruiting from statistically representative sample of schoolofall school districts in a city 
+                </label></li>
+                <li> <label> Recruiting a sample that matches national demographics</label>
+                </li>
+            </ul>
+
+            <h4>8. Are non-research stakeholders involved?  </h4>
+
+            <p class="lead">Classic laboratory-based:</p>
+            <p >Practitioners (clinicians, teachers, head teachers, speech therapists) are not involved or involved by providing the access to the populations of interests</p>
+
+            <p class="lead">Partially naturalistic:</p>
+            <p >Practitioners advise on and contribute at some but not all stages of the research project ( e.g. study design)</p>
+
+            <p class="lead">Fully naturalistic:</p>
+            <p >Practitioners advise on and contribute to all stages of the research project (help design, implement, and report on an intervention
+            </p>
+
+            <h4> 11. Please indicate where your intervention fits in best.</h4>
+
+            <p class="lead">Classic laboratory-based examples:</p>
+            <ul>
+                <li> <label> ***</label></li>
+                <li> <label> ***</label> </li>
+                <li></label> *** </label> </li>
+            </ul>
+            <p class="lead">Partially naturalistic examples:</p>
+            <ul>
+                <li> <label> ***</label></li>
+                <li> <label> ***</label> </li>
+                <li></label> *** </label> </li>
+            </ul>
+            <p class="lead">Fully naturalistic examples:</p>
+            <ul>
+                <li> <label> ***</label></li>
+                <li> <label> ***</label> </li>
+                <li></label> *** </label> </li>
+            </ul>
+
+        </div>
+
         </article>
 
-        <article>
-            <h3>3. Describe your tasks. Examples:</h3>
-            <p class="pagraph">Classic laboratory-based: </p>
-            <p class="pagraph">Partially naturalistic: </p>
-            <p class="pagraph">Fully naturalistic: </p>
-        </article>
     </section>
 
     <section class="seccion">
-        <h1> If you are running an itervention</h1>
+        <div class="container">  
+            <fieldset id="contact">
+                <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">If you are running an itervention</button>
+            </fieldset>
         <article>
-            <p>You may be intrested in check out this <a href="https://fluxsociety.org/">Can you Paul sent the link to the form you shared</a> .</p>
+            <p>You may be intrested in check out this <a href="https://fluxsociety.org/">Can you Paul sent the link to
+                    the form you shared</a> .</p>
         </article>
 
     </section>
-    
+
 
 </div>
 
