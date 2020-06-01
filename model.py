@@ -156,7 +156,7 @@ class InputForm(Form):
         default='No comment')
 
     Q5c = RadioField(
-        label='5.2 If you have a third task, where is the testing taking place?,
+        label='5.2 If you have a third task, where is the testing taking place?',
         coerce=int,
         choices=[(1,'Classic laboratory-based [In the lab or clinical facilities]'),
                  (2,'Partially naturalistic [In the lab which looks naturalistic (e.g. in lab classroom), ambulatory patients or institutionalized subjects]'),
@@ -195,7 +195,7 @@ class InputForm(Form):
         label='Please justify your answer below.',
         default='No comment')
 
-        Q8 = RadioField(
+    Q8 = RadioField(
         label='8. Are non-research stakeholders involved? (teachers, parents, institutions, clinicians)',
         coerce=int,
         choices=[(1,'Classic laboratory-based [No involvement from other stakeholders besides facilitating the sample]'),
