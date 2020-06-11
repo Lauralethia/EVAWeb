@@ -11,7 +11,7 @@ def visualize_series(
     import numpy as np
 
 
-    labels = ['CL', 'PN', 'FN']
+    labels = ['CL', 'PN', 'NRW']
 
     Q2to10=[Q2,Q3,Q4,Q5,Q6,Q3b,Q4b,Q5b,Q6b,Q3c,Q4c,Q5c,Q6c,Q7,Q8,Q11]
     # Translate to factor values
@@ -23,16 +23,20 @@ def visualize_series(
 
     # Calculate total score as result area / maximum area
     # Goes grom [0-1], 0 is for 'pure' factor, 1 to perfectly equilibrated experiment
-    #area = (FA*FB*np.sin(120))/2 + (FB*FC*np.sin(120))/2 +(FA*FC*np.sin(120))/2
-    #PerEquilArea = ((3/9*3/9*np.sin(120))/2)*3 # Maximun posible area (all load the same weight)
+    area = (FA*FB*np.sin(120))/2 + (FB*FC*np.sin(120))/2 +(FA*FC*np.sin(120))/2
+    PerEquilArea = (((Tot/3)/Tot*(Tot/3)/Tot*np.sin(120))/2)*3 # Maximun posible area (all load the same weight)
 
-    #TotScore = area/PerEquilArea
+    TotScore = area/PerEquilArea
 
     textstr = '\n'.join((
     r'$\mathrm{CL}=%.0f$%%' % (values[0]*100, ),
     r'$\mathrm{PN}=%.0f$%%' % (values[1]*100, ),
-    r'$\mathrm{FN}=%.0f$%%' % (values[2]*100, )))
-    #,    r'$\mathrm{TE}=%.2f$' % (TotScore, )))
+    r'$\mathrm{NRW}=%.0f$%%' % (values[2]*100, ),#))
+    r'$\mathrm{BE}=%.2f$' % (TotScore, )))
+
+    legenda = '\n'.join((
+    r'CL = Classic Laboratory-based; PL = Partially Naturalistic;',
+    r' NRW = Naturalistic real-world; BE = Balance Score'))
 
     num_vars = len(labels)
     # Split the circle into even parts and save the angles
@@ -89,9 +93,9 @@ def visualize_series(
     # place a text box in upper left in axes coords
     # these are matplotlib.patch.Patch properties
     props = dict(boxstyle='round', facecolor='#e08162', alpha=0.25)
-    ax.text(-0.05, 1.07, textstr, transform=ax.transAxes, fontsize=14,
+    ax.text(-0.1, 1.07, textstr, transform=ax.transAxes, fontsize=14,
         verticalalignment='top', bbox=props)
-    ax.text(-0.03, -0.05, 'CL = Classic Laboratory-based; PL = Partially Naturalistic; FN = Fully Naturalistic',transform=ax.transAxes, fontsize=9,
+    ax.text(-0.03, -0.05, legenda,transform=ax.transAxes, fontsize=9,
         verticalalignment='top')
 
     from io import BytesIO

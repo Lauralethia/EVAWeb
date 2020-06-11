@@ -11,7 +11,7 @@ class InputForm(Form):
         coerce=int,
         choices=[(1,'Classic laboratory-based [Subject based, focused on biological/physiological process (neuroimaging, biological samples, etc)]'),
                  (2,'Partially naturalistic [Subjective or cognitive performance scores, such as cognitive tests, free speech and natural language processing]'),
-                 (3,'Fully naturalistic [Social context or dependent on social interactions, such as classroom-based testing or social interaction outcomes]')],
+                 (3,'Naturalistic real-world [Social context or dependent on social interactions, such as classroom-based testing or social interaction outcomes]')],
         default=1,
         validators=[validators.InputRequired()])
     TQ2 = TextField(
@@ -21,27 +21,27 @@ class InputForm(Form):
 
 #########################################################################################################################################################
         # TASK Q1
-    Q3 = RadioField(
-        label='3. Describe your tasks.',
-        coerce=int,
-        choices=[(1,'Classic laboratory-based [Measuring reaction times to faces presented on a screen]'),
-                 (2,'Partially naturalistic [Peer presence during a task]'),
-                 (3,'Fully naturalistic [Social network analysis, in classroom behavior, EMA about social behavior]')],
-        default=1,
-        validators=[validators.InputRequired()])
-    TQ3 = TextField(
-        label='Please justify your answer below.',
-        default='No comment')
-
     Q4 = RadioField(
-        label='4. Describe the kind of stimuli used in your tasks. How naturalistic are your stimuli?',
+        label='3. Describe the kind of stimuli used in your tasks. How naturalistic are your stimuli?',
         coerce=int,
         choices=[(1,'Classic laboratory-based [Static stimuli presented on a screen, many different trials using the same stimuli]'),
-                 (2,'Partially naturalistic [Stimuli that have context information, or meaning is dependent on the context (video, stories, virtual reality)]'),
-                 (3,'Fully naturalistic [Interactive tasks with peers]')],
+                 (2,'Partially naturalistic [Dynamic stimuli that have context information, or meaning is dependent on the context (video, stories, virtual reality)]'),
+                 (3,'Naturalistic real-world [Social interactions with peers]')],
         default=1,
         validators=[validators.InputRequired()])   
     TQ4 = TextField(
+        label='Please justify your answer below.',
+        default='No comment')
+
+    Q3 = RadioField(
+        label='4. Describe your experimental approach.',
+        coerce=int,
+        choices=[(1,'Classic laboratory-based [Measuring reaction times to faces presented on a screen]'),
+                 (2,'Partially naturalistic [Peer presence during a lab task]'),
+                 (3,'Naturalistic real-world [Social network analysis, in classroom behavior, EMA about social behavior]')],
+        default=1,
+        validators=[validators.InputRequired()])
+    TQ3 = TextField(
         label='Please justify your answer below.',
         default='No comment')
 
@@ -50,7 +50,7 @@ class InputForm(Form):
         coerce=int,
         choices=[(1,'Classic laboratory-based [In the lab or clinical facilities]'),
                  (2,'Partially naturalistic [In the lab which looks naturalistic (e.g. in lab classroom), ambulatory patients or institutionalized subjects]'),
-                 (3,'Fully naturalistic [In the classroom or the home with minimal researcher intervention on the environment]')],
+                 (3,'Naturalistic real-world [In the classroom or the home with minimal researcher intervention on the environment]')],
         default=1,
         validators=[validators.InputRequired()])
     TQ5 = TextField(
@@ -62,7 +62,7 @@ class InputForm(Form):
         coerce=int,
         choices=[(1,'Classic laboratory-based [My study only measured in-lab task behavior and/or includes environmental variables only as covariates]'),
                  (2,'Partially naturalistic [My study evaluates self / parent report on outside lab behavior as variables of interest]'),
-                 (3,'Fully naturalistic [My study evaluates impact on real world grades/ test scores, incarceration, EMA or social network analysis]')],
+                 (3,'Naturalistic real-world [My study evaluates impact on real world grades/ test scores, incarceration, EMA or social network analysis]')],
         default=1,
         validators=[validators.InputRequired()])
     TQ6 = TextField(
@@ -71,26 +71,14 @@ class InputForm(Form):
         
         # TASK Q2
 
-    Q3b = RadioField(
-        label='3.2 If you have a second task, describe your tasks.',
-        coerce=int,
-        choices=[(1,'Classic laboratory-based [Measuring reaction times to faces presented on a screen]'),
-                 (2,'Partially naturalistic [Peer presence during a task]'),
-                 (3,'Fully naturalistic [Social network analysis, in classroom behavior, EMA about social behavior]'),
-                 (4,'No second task')],
-        default=4,
-        validators=[validators.InputRequired()])
-    TQ3b = TextField(
-        label='Please justify your answer below.',
-        default='No comment')
-        
+          
 
     Q4b = RadioField(
-        label='4.2 If you have a second task, describe the kind of stimuli used in your tasks. How naturalistic are your stimuli?',
+        label='3.2 If you have a second task, describe the kind of stimuli used in your tasks. How naturalistic are your stimuli?',
         coerce=int,
         choices=[(1,'Classic laboratory-based [Static stimuli presented on a screen, many different trials using the same stimuli]'),
                  (2,'Partially naturalistic [Stimuli that have context information, or meaning is dependent on the context (video, stories, virtual reality)]'),
-                 (3,'Fully naturalistic [Interactive tasks with peers]'),
+                 (3,'Naturalistic real-world [Interactive tasks with peers]'),
                  (4,'No second task')],
 
         default=4,
@@ -99,12 +87,26 @@ class InputForm(Form):
         label='Please justify your answer below.',
         default='No comment')
 
+    Q3b = RadioField(
+        label='4.2 If you have a second task, describe your tasks.',
+        coerce=int,
+        choices=[(1,'Classic laboratory-based [Measuring reaction times to faces presented on a screen]'),
+                 (2,'Partially naturalistic [Peer presence during a lab task]'),
+                 (3,'Naturalistic real-world [Social network analysis, in classroom behavior, EMA about social behavior]'),
+                 (4,'No second task')],
+        default=4,
+        validators=[validators.InputRequired()])
+    TQ3b = TextField(
+        label='Please justify your answer below.',
+        default='No comment')
+
+
     Q5b = RadioField(
         label='5.2 If you have a second task, where is the testing taking place?',
         coerce=int,
         choices=[(1,'Classic laboratory-based [In the lab or clinical facilities]'),
                  (2,'Partially naturalistic [In the lab which looks naturalistic (e.g. in lab classroom), ambulatory patients or institutionalized subjects]'),
-                 (3,'Fully naturalistic [In the classroom or the home with minimal researcher intervention on the environment]'),
+                 (3,'Naturalistic real-world [In the classroom or the home with minimal researcher intervention on the environment]'),
                  (4,'No second task')],
 
         default=4,
@@ -118,7 +120,7 @@ class InputForm(Form):
         coerce=int,
         choices=[(1,'Classic laboratory-based [My study only measured in-lab task behavior and/or includes environmental variables only as covariates]'),
                  (2,'Partially naturalistic [My study evaluates self / parent report on outside lab behavior as variables of interest]'),
-                 (3,'Fully naturalistic [My study evaluates impact on real world grades/ test scores, incarceration, EMA or social network analysis]'),
+                 (3,'Naturalistic real-world [My study evaluates impact on real world grades/ test scores, incarceration, EMA or social network analysis]'),
                  (4,'No second task')],
         default=4,
         validators=[validators.InputRequired()])
@@ -127,30 +129,32 @@ class InputForm(Form):
         default='No comment')
 
         # TASK Q3
+           
+
+    Q4c = RadioField(
+        label='3.3 If you have a second task, describe the kind of stimuli used in your tasks. How naturalistic are your stimuli?',
+        coerce=int,
+        choices=[(1,'Classic laboratory-based [Static stimuli presented on a screen, many different trials using the same stimuli]'),
+                 (2,'Partially naturalistic [Stimuli that have context information, or meaning is dependent on the context (video, stories, virtual reality)]'),
+                 (3,'Naturalistic real-world [Interactive tasks with peers]'),
+                 (4,'No third task')],
+
+        default=4,
+        validators=[validators.InputRequired()])   
+
     Q3c = RadioField(
-        label='3.3 If you have a third task, describe your tasks.',
+        label='4.3 If you have a third task, describe your tasks.',
         coerce=int,
         choices=[(1,'Classic laboratory-based [Measuring reaction times to faces presented on a screen]'),
-                 (2,'Partially naturalistic [Peer presence during a task]'),
-                 (3,'Fully naturalistic [Social network analysis, in classroom behavior, EMA about social behavior]'),
+                 (2,'Partially naturalistic [Peer presence during a lab task]'),
+                 (3,'Naturalistic real-world [Social network analysis, in classroom behavior, EMA about social behavior]'),
                  (4,'No third task')],
         default=4,
         validators=[validators.InputRequired()])
     TQ3c = TextField(
         label='Please justify your answer below.',
         default='No comment')
-        
 
-    Q4c = RadioField(
-        label='4.3 If you have a second task, describe the kind of stimuli used in your tasks. How naturalistic are your stimuli?',
-        coerce=int,
-        choices=[(1,'Classic laboratory-based [Static stimuli presented on a screen, many different trials using the same stimuli]'),
-                 (2,'Partially naturalistic [Stimuli that have context information, or meaning is dependent on the context (video, stories, virtual reality)]'),
-                 (3,'Fully naturalistic [Interactive tasks with peers]'),
-                 (4,'No third task')],
-
-        default=4,
-        validators=[validators.InputRequired()])   
     TQ4c = TextField(
         label='Please justify your answer below.',
         default='No comment')
@@ -160,7 +164,7 @@ class InputForm(Form):
         coerce=int,
         choices=[(1,'Classic laboratory-based [In the lab or clinical facilities]'),
                  (2,'Partially naturalistic [In the lab which looks naturalistic (e.g. in lab classroom), ambulatory patients or institutionalized subjects]'),
-                 (3,'Fully naturalistic [In the classroom or the home with minimal researcher intervention on the environment]'),
+                 (3,'Naturalistic real-world [In the classroom or the home with minimal researcher intervention on the environment]'),
                  (4,'No third task')],
 
         default=4,
@@ -174,7 +178,7 @@ class InputForm(Form):
         coerce=int,
         choices=[(1,'Classic laboratory-based [My study only measured in-lab task behavior and/or includes environmental variables only as covariates]'),
                  (2,'Partially naturalistic [My study evaluates self / parent report on outside lab behavior as variables of interest]'),
-                 (3,'Fully naturalistic [My study evaluates impact on real world grades/ test scores, incarceration, EMA or social network analysis]'),
+                 (3,'Naturalistic real-world [My study evaluates impact on real world grades/ test scores, incarceration, EMA or social network analysis]'),
                  (4,'No third task')],
         default=4,
         validators=[validators.InputRequired()])
@@ -188,7 +192,7 @@ class InputForm(Form):
         coerce=int,
         choices=[(1,'Classic laboratory-based [Convenience sample (e.g., students)]'),
                  (2,'Partially naturalistic [Community-based recruitment]'),
-                 (3,'Fully naturalistic [Nationally representative sample by demographics and socio-economic status]')],
+                 (3,'Naturalistic real-world [Nationally representative sample by demographics and socio-economic status]')],
         default=1,
         validators=[validators.InputRequired()])
     TQ7 = TextField(
@@ -200,7 +204,7 @@ class InputForm(Form):
         coerce=int,
         choices=[(1,'Classic laboratory-based [No involvement from other stakeholders besides facilitating the sample]'),
                  (2,'Partially naturalistic [Involvement in result interpretation / writing]'),
-                 (3,'Fully naturalistic [Involvement in study design / implementation]')],
+                 (3,'Naturalistic real-world [Involvement in study design / implementation]')],
         default=1,
         validators=[validators.InputRequired()])
     TQ8 = TextField(
@@ -222,7 +226,7 @@ class InputForm(Form):
         coerce=int,
         choices=[(1,'Classic laboratory-based [***]'),
                  (2,'Partially naturalistic [***]'),
-                 (3,'Fully naturalistic [***]'),
+                 (3,'Naturalistic real-world [***]'),
                  (4,'No intervention component')],
         validators=[validators.InputRequired()])
     TQ11 = TextField(
