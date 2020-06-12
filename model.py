@@ -214,8 +214,8 @@ class InputForm(Form):
     IN1 = RadioField(
         label='9. Is there an intervention component?',
         coerce=int,
-        choices=[(1,'yes'),(2,'no')],
-        default=2,
+        choices=[(11,'yes'),(22,'no')],
+        default=22,
         validators=[validators.InputRequired()])
     RIN1 = TextAreaField(
         label='10. If R9 is yes. Describe the intervention. (What kind of stimuli are you using for the intervention? How naturalistic are your stimuli? Where is the intervention taking place? Are non-research stakeholders involved?)',

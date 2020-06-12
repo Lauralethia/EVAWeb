@@ -24,7 +24,7 @@ def visualize_series(
     # Calculate total score as result area / maximum area
     # Goes grom [0-1], 0 is for 'pure' factor, 1 to perfectly equilibrated experiment
     area = (FA*FB*np.sin(120))/2 + (FB*FC*np.sin(120))/2 +(FA*FC*np.sin(120))/2
-    PerEquilArea = (((Tot/3)/Tot*(Tot/3)/Tot*np.sin(120))/2)*3 # Maximun posible area (all load the same weight)
+    PerEquilArea = ((((Tot/3)/Tot)*((Tot/3)/Tot)*np.sin(120))/2)*3 # Maximun posible area (all load the same weight)
 
     TotScore = area/PerEquilArea
 
@@ -36,7 +36,7 @@ def visualize_series(
 
     legenda = '\n'.join((
     r'CL = Classic Laboratory-based; PL = Partially Naturalistic;',
-    r' NRW = Naturalistic real-world; BE = Balance Score'))
+    r' NRW = Naturalistic real-world; BS = Balance Score'))
 
     num_vars = len(labels)
     # Split the circle into even parts and save the angles
