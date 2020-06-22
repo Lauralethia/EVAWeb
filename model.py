@@ -25,7 +25,7 @@ class InputForm(Form):
         label='3. Describe the kind of stimuli used in your tasks. How naturalistic are your stimuli?',
         coerce=int,
         choices=[(1,'Classic laboratory-based [Static stimuli presented on a screen, many different trials using the same stimuli]'),
-                 (2,'Partially naturalistic [Dynamic stimuli that have context information, or meaning is dependent on the context (video, stories, virtual reality)]'),
+                 (2,'Partially naturalistic [Dynamic stimuli that have context information, or meaning is dependent on the context (video, stories, etc)]'),
                  (3,'Naturalistic real-world [Social interactions with peers]')],
         default=1,
         validators=[validators.InputRequired()])   
@@ -77,7 +77,7 @@ class InputForm(Form):
         label='3.2 If you have a second task, describe the kind of stimuli used in your tasks. How naturalistic are your stimuli?',
         coerce=int,
         choices=[(1,'Classic laboratory-based [Static stimuli presented on a screen, many different trials using the same stimuli]'),
-                 (2,'Partially naturalistic [Stimuli that have context information, or meaning is dependent on the context (video, stories, virtual reality)]'),
+                 (2,'Partially naturalistic [Dynamic stimuli that have context information, or meaning is dependent on the context (video, stories, etc)]'),
                  (3,'Naturalistic real-world [Interactive tasks with peers]'),
                  (4,'No second task')],
 
@@ -135,7 +135,7 @@ class InputForm(Form):
         label='3.3 If you have a second task, describe the kind of stimuli used in your tasks. How naturalistic are your stimuli?',
         coerce=int,
         choices=[(1,'Classic laboratory-based [Static stimuli presented on a screen, many different trials using the same stimuli]'),
-                 (2,'Partially naturalistic [Stimuli that have context information, or meaning is dependent on the context (video, stories, virtual reality)]'),
+                 (2,'Partially naturalistic [Dynamic stimuli that have context information, or meaning is dependent on the context (video, stories, etc)]'),
                  (3,'Naturalistic real-world [Interactive tasks with peers]'),
                  (4,'No third task')],
 
