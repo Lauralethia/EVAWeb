@@ -11,7 +11,7 @@ class InputForm(Form):
         coerce=int,
         choices=[(1,'Classic laboratory-based [Subject based, focused on biological/physiological process (neuroimaging, biological samples, etc)]'),
                  (2,'Partially naturalistic [Subjective or cognitive performance scores, such as cognitive tests, free speech and natural language processing]'),
-                 (3,'Naturalistic real-world [Social context or dependent on social interactions, such as classroom-based testing or social interaction outcomes]')],
+                 (3,'Naturalistic real-world [Dependent on social interactions or context, such as classroom-based testing or social interaction outcomes]')],
         default=1,
         validators=[validators.InputRequired()])
     TQ2 = TextField(
