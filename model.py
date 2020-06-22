@@ -228,6 +228,7 @@ class InputForm(Form):
                  (2,'Partially naturalistic [***]'),
                  (3,'Naturalistic real-world [***]'),
                  (4,'No intervention component')],
+        default=4,
         validators=[validators.InputRequired()])
     TQ11 = TextField(
         label='Please justify your answer below.',
