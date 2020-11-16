@@ -36,7 +36,7 @@ def visualize_series(
     
     legenda = '\n'.join((
     r'CLR = Controlled laboratory research | NLRA = Naturalistic laboratory research approach',
-    r' NRWRA = Naturalistic real-world research approach | BS = Balance Score'))
+    r' NRWRA = Naturalistic real-world research approach | BE = Balance Score'))
 
     num_vars = len(labels)
     # Split the circle into even parts and save the angles
