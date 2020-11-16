@@ -11,7 +11,7 @@ def visualize_series(
     import numpy as np
 
 
-    labels = ['CL', 'PN', 'NRW']
+    labels = ['CLR', 'NLRA', 'NRWRA']
 
     Q2to10=[Q2,Q3,Q4,Q5,Q6,Q3b,Q4b,Q5b,Q6b,Q3c,Q4c,Q5c,Q6c,Q7,Q8,Q11]
     # Translate to factor values
@@ -28,15 +28,15 @@ def visualize_series(
 
     TotScore = area/PerEquilArea
 
-    textstr = '\n'.join((
-    r'$\mathrm{CL}=%.0f$%%' % (values[0]*100, ),
-    r'$\mathrm{PN}=%.0f$%%' % (values[1]*100, ),
-    r'$\mathrm{NRW}=%.0f$%%' % (values[2]*100, ),#))
-    r'$\mathrm{BE}=%.2f$' % (TotScore, )))
+    textstr =     'CLR = ' + str(round(values[0]*100,1)) + \
+              '% | NLRA = ' + str(round(values[1]*100,1) )+ \
+              '% | NRWRA = ' + str(round(values[2]*100,1)) + \
+              '% | BE = ' + str(TotScore)
 
+    
     legenda = '\n'.join((
-    r'CL = Classic Laboratory-based; PL = Partially Naturalistic;',
-    r' NRW = Naturalistic real-world; BS = Balance Score'))
+    r'CLR = Controlled laboratory research | NLRA = Naturalistic laboratory research approach',
+    r' NRWRA = Naturalistic real-world research approach | BS = Balance Score'))
 
     num_vars = len(labels)
     # Split the circle into even parts and save the angles
@@ -93,9 +93,9 @@ def visualize_series(
     # place a text box in upper left in axes coords
     # these are matplotlib.patch.Patch properties
     props = dict(boxstyle='round', facecolor='#e08162', alpha=0.25)
-    ax.text(-0.1, 1.07, textstr, transform=ax.transAxes, fontsize=14,
-        verticalalignment='top', bbox=props)
-    ax.text(-0.03, -0.05, legenda,transform=ax.transAxes, fontsize=9,
+    ax.text(-0.05, -0.02, textstr, transform=ax.transAxes, fontsize=12,
+        verticalalignment='top')
+    ax.text(-0.1, -0.07, legenda,transform=ax.transAxes, fontsize=9,
         verticalalignment='top')
 
     from io import BytesIO
@@ -107,9 +107,9 @@ def visualize_series(
     return figdata_png.decode('utf8')
 
 if __name__ == '__main__':
-    visualize_series(Q1="st", Q2=1, 
-    Q3=1, Q4=1, Q5=1, Q6=1,
-    Q3b=4, Q4b=4, Q5b=4, Q6b=4,
-    Q3c=4, Q4c=4, Q5c=4, Q6c=4,
-    Q7=1, Q8=1, Q11=1)
+    visualize_series(Q1="Your study aim", Q2=1, 
+    Q3=1, Q4=1, Q5=1, Q6=4,
+    Q3b=2, Q4b=2, Q5b=2, Q6b=2,
+    Q3c=3, Q4c=3, Q5c=3, Q6c=3,
+    Q7=4, Q8=4, Q11=4)
 
