@@ -11,7 +11,7 @@ def visualize_series(
     import numpy as np
 
 
-    labels = ['CLR', 'NLRA', 'NRWRA']
+    labels = ['CLR', 'PNLRA', 'NRWRA']
 
     Q2to10=[Q2,Q3,Q4,Q5,Q6,Q3b,Q4b,Q5b,Q6b,Q3c,Q4c,Q5c,Q6c,Q7,Q8,Q11]
     # Translate to factor values
@@ -29,14 +29,17 @@ def visualize_series(
     TotScore = area/PerEquilArea
 
     textstr =     'CLR = ' + str(round(values[0]*100,1)) + \
-              '% | NLRA = ' + str(round(values[1]*100,1) )+ \
+              '% | PNLRA = ' + str(round(values[1]*100,1) )+ \
               '% | NRWRA = ' + str(round(values[2]*100,1)) + \
               '% | BE = ' + str(round(TotScore,2))
 
     
     legenda = '\n'.join((
-    r'CLR = Controlled laboratory research | NLRA = Naturalistic laboratory research approach',
+    r'CLR = Controlled laboratory research | PNLRA = Partially naturalistic laboratory research approach',
     r' NRWRA = Naturalistic real-world research approach | BE = Balance Score'))
+    # legenda = '\n'.join((
+    # r'CLR = Controlled laboratory research | PNLRA = Partially naturalistic laboratory research approach',
+    # r' NRWRA = Naturalistic real-world research approach'))
 
     num_vars = len(labels)
     # Split the circle into even parts and save the angles
@@ -95,7 +98,7 @@ def visualize_series(
     props = dict(boxstyle='round', facecolor='#e08162', alpha=0.25)
     ax.text(-0.05, -0.02, textstr, transform=ax.transAxes, fontsize=12,
         verticalalignment='top')
-    ax.text(-0.1, -0.07, legenda,transform=ax.transAxes, fontsize=9,
+    ax.text(-0.1, -0.07, legenda,transform=ax.transAxes, fontsize=8,
         verticalalignment='top')
 
     from io import BytesIO
