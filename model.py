@@ -10,7 +10,7 @@ class InputForm(Form):
         label='2. Which methods do you base your main conclusions on?',
         coerce=int,
         choices=[(1,'CLR [Subject based, focused on biological/physiological process (neuroimaging, biological samples, etc)]'),
-                 (2,'NLRA [Subjective or cognitive performance scores, such as cognitive tests, free speech and natural language processing]'),
+                 (2,'PNLRA [Subjective or cognitive performance scores, such as cognitive tests, free speech and natural language processing]'),
                  (3,'NRWRA [Dependent on social interactions or context, such as classroom-based testing or social interaction outcomes]')],
         default=1,
         validators=[validators.InputRequired()])
@@ -25,7 +25,7 @@ class InputForm(Form):
         label='3. Describe the kind of stimuli used in your tasks. How naturalistic are your stimuli?',
         coerce=int,
         choices=[(1,'CLR [Static stimuli presented on a screen, many different trials using the same stimuli]'),
-                 (2,'NLRA [Dynamic stimuli that have context information, or meaning is dependent on the context (video, stories, etc)]'),
+                 (2,'PNLRA [Dynamic stimuli that have context information, or meaning is dependent on the context (video, stories, etc)]'),
                  (3,'NRWRA [Social interactions with peers]')],
         default=1,
         validators=[validators.InputRequired()])   
@@ -37,7 +37,7 @@ class InputForm(Form):
         label='4. Describe your experimental approach.',
         coerce=int,
         choices=[(1,'CLR [Measuring reaction times to faces presented on a screen]'),
-                 (2,'NLRA [Peer presence during a lab task]'),
+                 (2,'PNLRA [Peer presence during a lab task]'),
                  (3,'NRWRA [Social network analysis, in classroom behavior, EMA about social behavior]')],
         default=1,
         validators=[validators.InputRequired()])
@@ -49,7 +49,7 @@ class InputForm(Form):
         label='5. Where is the testing taking place? (lab, home, classroom, public space e.g. museum or library)',
         coerce=int,
         choices=[(1,'CLR [In the lab or clinical facilities]'),
-                 (2,'NLRA [In the lab which looks naturalistic (e.g. in lab classroom), ambulatory patients or institutionalized subjects]'),
+                 (2,'PNLRA [In the lab which looks naturalistic (e.g. in lab classroom), ambulatory patients or institutionalized subjects]'),
                  (3,'NRWRA [In the classroom or the home with minimal researcher intervention on the environment]')],
         default=1,
         validators=[validators.InputRequired()])
@@ -61,7 +61,7 @@ class InputForm(Form):
         label='6. What is your study measuring?',
         coerce=int,
         choices=[(1,'CLR [My study only measured in-lab task behavior and/or includes environmental variables only as covariates]'),
-                 (2,'NLRA [My study evaluates self / parent report on outside lab behavior as variables of interest]'),
+                 (2,'PNLRA [My study evaluates self / parent report on outside lab behavior as variables of interest]'),
                  (3,'NRWRA [My study evaluates impact on real world grades/ test scores, incarceration, EMA or social network analysis]')],
         default=1,
         validators=[validators.InputRequired()])
@@ -77,7 +77,7 @@ class InputForm(Form):
         label='3.2 If you have a second task, describe the kind of stimuli used in your tasks. How naturalistic are your stimuli?',
         coerce=int,
         choices=[(1,'CLR [Static stimuli presented on a screen, many different trials using the same stimuli]'),
-                 (2,'NLRA [Dynamic stimuli that have context information, or meaning is dependent on the context (video, stories, etc)]'),
+                 (2,'PNLRA [Dynamic stimuli that have context information, or meaning is dependent on the context (video, stories, etc)]'),
                  (3,'NRWRA [Interactive tasks with peers]'),
                  (4,'No second task')],
 
@@ -91,7 +91,7 @@ class InputForm(Form):
         label='4.2 If you have a second task, describe your tasks.',
         coerce=int,
         choices=[(1,'CLR [Measuring reaction times to faces presented on a screen]'),
-                 (2,'NLRA [Peer presence during a lab task]'),
+                 (2,'PNLRA [Peer presence during a lab task]'),
                  (3,'NRWRA [Social network analysis, in classroom behavior, EMA about social behavior]'),
                  (4,'No second task')],
         default=4,
@@ -105,7 +105,7 @@ class InputForm(Form):
         label='5.2 If you have a second task, where is the testing taking place?',
         coerce=int,
         choices=[(1,'CLR [In the lab or clinical facilities]'),
-                 (2,'NLRA [In the lab which looks naturalistic (e.g. in lab classroom), ambulatory patients or institutionalized subjects]'),
+                 (2,'PNLRA [In the lab which looks naturalistic (e.g. in lab classroom), ambulatory patients or institutionalized subjects]'),
                  (3,'NRWRA [In the classroom or the home with minimal researcher intervention on the environment]'),
                  (4,'No second task')],
 
@@ -119,7 +119,7 @@ class InputForm(Form):
         label='6.2 If you have a second task, what is it measuring?',
         coerce=int,
         choices=[(1,'CLR [My study only measured in-lab task behavior and/or includes environmental variables only as covariates]'),
-                 (2,'NLRA [My study evaluates self / parent report on outside lab behavior as variables of interest]'),
+                 (2,'PNLRA [My study evaluates self / parent report on outside lab behavior as variables of interest]'),
                  (3,'NRWRA [My study evaluates impact on real world grades/ test scores, incarceration, EMA or social network analysis]'),
                  (4,'No second task')],
         default=4,
@@ -135,7 +135,7 @@ class InputForm(Form):
         label='3.3 If you have a second task, describe the kind of stimuli used in your tasks. How naturalistic are your stimuli?',
         coerce=int,
         choices=[(1,'CLR [Static stimuli presented on a screen, many different trials using the same stimuli]'),
-                 (2,'NLRA [Dynamic stimuli that have context information, or meaning is dependent on the context (video, stories, etc)]'),
+                 (2,'PNLRA [Dynamic stimuli that have context information, or meaning is dependent on the context (video, stories, etc)]'),
                  (3,'NRWRA [Interactive tasks with peers]'),
                  (4,'No third task')],
 
@@ -163,7 +163,7 @@ class InputForm(Form):
         label='5.2 If you have a third task, where is the testing taking place?',
         coerce=int,
         choices=[(1,'CLR [In the lab or clinical facilities]'),
-                 (2,'NLRA [In the lab which looks naturalistic (e.g. in lab classroom), ambulatory patients or institutionalized subjects]'),
+                 (2,'PNLRA [In the lab which looks naturalistic (e.g. in lab classroom), ambulatory patients or institutionalized subjects]'),
                  (3,'NRWRA [In the classroom or the home with minimal researcher intervention on the environment]'),
                  (4,'No third task')],
 
@@ -177,7 +177,7 @@ class InputForm(Form):
         label='6.3 If you have a third task, what is it measuring?',
         coerce=int,
         choices=[(1,'CLR [My study only measured in-lab task behavior and/or includes environmental variables only as covariates]'),
-                 (2,'NLRA [My study evaluates self / parent report on outside lab behavior as variables of interest]'),
+                 (2,'PNLRA [My study evaluates self / parent report on outside lab behavior as variables of interest]'),
                  (3,'NRWRA [My study evaluates impact on real world grades/ test scores, incarceration, EMA or social network analysis]'),
                  (4,'No third task')],
         default=4,
@@ -191,7 +191,7 @@ class InputForm(Form):
         label='7. How does sample recruitment take place? Is your sample representative of your region? How important do you think this is for your particular question?',
         coerce=int,
         choices=[(1,'CLR [Convenience sample (e.g., students)]'),
-                 (2,'NLRA [Community-based recruitment]'),
+                 (2,'PNLRA [Community-based recruitment]'),
                  (3,'NRWRA [Nationally representative sample by demographics and socio-economic status]')],
         default=1,
         validators=[validators.InputRequired()])
@@ -203,7 +203,7 @@ class InputForm(Form):
         label='8. Are non-research stakeholders involved? (teachers, parents, institutions, clinicians)',
         coerce=int,
         choices=[(1,'CLR [No involvement from other stakeholders besides facilitating the sample]'),
-                 (2,'NLRA [Involvement in result interpretation / writing]'),
+                 (2,'PNLRA [Involvement in result interpretation / writing]'),
                  (3,'NRWRA [Involvement in study design / implementation]')],
         default=1,
         validators=[validators.InputRequired()])
@@ -225,7 +225,7 @@ class InputForm(Form):
         label='11. If R9 is yes, please indicate where your intervention fits in best. ',
         coerce=int,
         choices=[(1,'CLR [***]'),
-                 (2,'NLRA [***]'),
+                 (2,'PNLRA [***]'),
                  (3,'NRWRA [***]'),
                  (4,'No intervention component')],
         default=4,
@@ -236,5 +236,5 @@ class InputForm(Form):
 
     
     TQF = TextAreaField(
-        label='12. Lastly, please indicate in which category (CLR, NLRA, and NRWRA) you see your research fits best and state the reasons.',
+        label='12. Lastly, please indicate in which category (CLR, PNLRA, and NRWRA) you see your research fits best and state the reasons.',
         default='No comment')
