@@ -31,7 +31,7 @@ def visualize_series(
     textstr =     'CLR = ' + str(round(values[0]*100,1)) + \
               '% | NLRA = ' + str(round(values[1]*100,1) )+ \
               '% | NRWRA = ' + str(round(values[2]*100,1)) + \
-              '% | BE = ' + str(TotScore)
+              '% | BE = ' + str(round(TotScore,2))
 
     
     legenda = '\n'.join((
