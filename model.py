@@ -2,7 +2,7 @@ from wtforms import Form, RadioField, validators,TextField, TextAreaField, Submi
 
 class InputForm(Form):
     Q1 = TextField(
-        label='1.What is the aim of your study?',
+        label='1.What is the aim of your study? What situation/context do you intend to generalize the results to (e.g. Is your sample representative of your region)?',
         default='...',
         validators=[validators.InputRequired()])
 
@@ -22,11 +22,11 @@ class InputForm(Form):
 #########################################################################################################################################################
         # TASK Q1
     Q4 = RadioField(
-        label='3. Describe the kind of stimuli used in your tasks. How naturalistic are your stimuli?',
+        label='3. Describe the kind of stimuli used in your tasks.',
         coerce=int,
-        choices=[(1,'CLR [Static stimuli presented on a screen, many different trials using the same stimuli]'),
-                 (2,'PNLRA [Dynamic stimuli that have context information, or meaning is dependent on the context (video, stories, etc)]'),
-                 (3,'NRWRA [Social interactions with peers]')],
+        choices=[(1,'CLR [Static stimuli, typical for perceptual/cognitive studies, like face images]'),
+                 (2,'PNLRA [Dynamic stimuli, like dynamic faces on video]'),
+                 (3,'NRWRA [Fully naturalistically sampled stimuli in the real world, like persons during a social interaction]')],
         default=1,
         validators=[validators.InputRequired()])   
     TQ4 = TextField(
@@ -36,9 +36,9 @@ class InputForm(Form):
     Q3 = RadioField(
         label='4. Describe your experimental approach.',
         coerce=int,
-        choices=[(1,'CLR [Measuring reaction times to faces presented on a screen]'),
-                 (2,'PNLRA [Peer presence during a lab task]'),
-                 (3,'NRWRA [Social network analysis, in classroom behavior, EMA about social behavior]')],
+        choices=[(1,'CLR [Working memory task for shapes presented on a screen]'),
+                 (2,'PNLRA [Test of memory after viewing a movie]'),
+                 (3,'NRWRA [Test of memory of an interaction after a prolonged delay that involved other activities]')],
         default=1,
         validators=[validators.InputRequired()])
     TQ3 = TextField(
@@ -48,9 +48,9 @@ class InputForm(Form):
     Q5 = RadioField(
         label='5. Where is the testing taking place? (lab, home, classroom, public space e.g. museum or library)',
         coerce=int,
-        choices=[(1,'CLR [In the lab or clinical facilities]'),
-                 (2,'PNLRA [In the lab which looks naturalistic (e.g. in lab classroom), ambulatory patients or institutionalized subjects]'),
-                 (3,'NRWRA [In the classroom or the home with minimal researcher intervention on the environment]')],
+        choices=[(1,'CLR [Lab or clinical testing room]'),
+                 (2,'PNLRA [Lab set up to look like a classroom]'),
+                 (3,'NRWRA [School classroom with little/no experimenter presence and interference into teaching activities')],
         default=1,
         validators=[validators.InputRequired()])
     TQ5 = TextField(
@@ -58,11 +58,11 @@ class InputForm(Form):
         default='No comment')
 
     Q6 = RadioField(
-        label='6. What is your study measuring?',
+        label='6. What are your measures?',
         coerce=int,
-        choices=[(1,'CLR [My study only measured in-lab task behavior and/or includes environmental variables only as covariates]'),
-                 (2,'PNLRA [My study evaluates self / parent report on outside lab behavior as variables of interest]'),
-                 (3,'NRWRA [My study evaluates impact on real world grades/ test scores, incarceration, EMA or social network analysis]')],
+        choices=[(1,'CLR [Well-understood, well-researched brain correlates of a specific cognitive process, such as the Event-Related Potential (ERP) components P1 or N2 (or a cognitive contrast in fMRI), tested in typical conditions]'),
+                 (2,'PNLRA [Testing the canonical brain correlates in non-traditional laboratory settings and/or using more portable brain imaging tools, like EEG or fNIRS]'),
+                 (3,'NRWRA [Using portable brain imaging tools in veridical external environments to test for canonical brain EEG/ERP ‘correlates’ of cognitive processes or for spectral features as correlates of mental states (engagement)]')],
         default=1,
         validators=[validators.InputRequired()])
     TQ6 = TextField(
@@ -188,11 +188,11 @@ class InputForm(Form):
 #########################################################################################################################################################################
 
     Q7 = RadioField(
-        label='7. How does sample recruitment take place? Is your sample representative of your region? How important do you think this is for your particular question?',
+        label='7. How important your recruitment approach is for generalizing from your results? When answering this question, consider how you recruit participants for your study, and whether your sample is representative of, e.g., your region.',
         coerce=int,
-        choices=[(1,'CLR [Convenience sample (e.g., students)]'),
+        choices=[(1,'CLR [Convenience sample, such as undergraduate students at a university]'),
                  (2,'PNLRA [Community-based recruitment]'),
-                 (3,'NRWRA [Nationally representative sample by demographics and socio-economic status]')],
+                 (3,'NRWRA [A large, nationally representative sample of school districts in a city]')],
         default=1,
         validators=[validators.InputRequired()])
     TQ7 = TextField(
@@ -202,9 +202,9 @@ class InputForm(Form):
     Q8 = RadioField(
         label='8. Are non-research stakeholders involved? (teachers, parents, institutions, clinicians)',
         coerce=int,
-        choices=[(1,'CLR [No involvement from other stakeholders besides facilitating the sample]'),
-                 (2,'PNLRA [Involvement in result interpretation / writing]'),
-                 (3,'NRWRA [Involvement in study design / implementation]')],
+        choices=[(1,'CLR [Stakeholders only facilitate access to the sample]'),
+                 (2,'PNLRA [Stakeholders involved in conception OR interpretation/writing up the results]'),
+                 (3,'NRWRA [Involvement in conception of project AND interpretation/writing up the results]')],
         default=1,
         validators=[validators.InputRequired()])
     TQ8 = TextField(
@@ -224,9 +224,9 @@ class InputForm(Form):
     Q11 = RadioField(
         label='11. If R9 is yes, please indicate where your intervention fits in best. ',
         coerce=int,
-        choices=[(1,'CLR [***]'),
-                 (2,'PNLRA [***]'),
-                 (3,'NRWRA [***]'),
+        choices=[(1,'CLR [Children play a game on a laptop/ tablet at the lab/ clinic supervised by experimenters and/or parents]'),
+                 (2,'PNLRA [Children play a game on a laptop/ tablet at home supervised by parents]'),
+                 (3,'NRWRA [Children play an online application at home by themselves when they feel like it]'),
                  (4,'No intervention component')],
         default=4,
         validators=[validators.InputRequired()])
