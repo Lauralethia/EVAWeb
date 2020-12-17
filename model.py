@@ -132,7 +132,7 @@ class InputForm(Form):
     TQ3c = TextField(label='Please justify your answer below.', default='No comment')
 
     Q5c = RadioField(
-        label='5.2 If you have a third task, where is the testing taking place?',
+        label='5.3 If you have a third task, where is the testing taking place?',
         coerce=int,
        choices=[(1,'CLR [Lab or clinical testing room]'),
                  (2,'PNLRA [Lab set up to look like a classroom]'),
