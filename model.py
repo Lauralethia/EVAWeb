@@ -1,197 +1,61 @@
-from wtforms import Form, RadioField, validators,TextField, TextAreaField, SubmitField
+from wtforms import Form, RadioField, validators,TextField, TextAreaField, SubmitField , IntegerField , BooleanField
 
-class InputForm(Form):
-    Q1 = TextField(
-        label='1.What is the aim of your study? What situation/context do you intend to generalize the results to (Is your sample representative)?',
-        default='...',
-        validators=[validators.InputRequired()])
-
-    Q2 = RadioField(
-        label='2. Which methods do you base your main conclusions on?',
-        coerce=int,
-        choices=[(1,'CLR [Subject based, focused on biological/physiological process (neuroimaging, biological samples, etc)]'),
-                 (2,'PNLRA [Subjective or cognitive performance scores, such as cognitive tests, free speech and natural language processing]'),
-                 (3,'NRWRA [Dependent on social interactions or context, such as classroom-based testing or social interaction outcomes]')],
-        default=1,
-        validators=[validators.InputRequired()])
-    TQ2 = TextField(label='Please justify your answer below.', default='No comment')
-
-#########################################################################################################################################################
-        # TASK Q1
-    Q4 = RadioField(
-        label='3. Describe the kind of stimuli used in your task.',
-        coerce=int,
-        choices=[(1,'CLR [Static stimuli, typical for perceptual/cognitive studies, like face images]'),
-                 (2,'PNLRA [Dynamic stimuli, like dynamic faces on video]'),
-                 (3,'NRWRA [Fully naturalistically sampled stimuli in the real world, like persons during a social interaction]')],
-        default=1,
-        validators=[validators.InputRequired()])   
-    TQ4 = TextField(label='Please justify your answer below.',default='No comment')
-
-    Q3 = RadioField(
-        label='4. Describe your experimental approach.',
-        coerce=int,
-        choices=[(1,'CLR [Working memory task for shapes presented on a screen]'),
-                 (2,'PNLRA [Test of memory after viewing a movie]'),
-                 (3,'NRWRA [Test of memory of an interaction after a prolonged delay that involved other activities]')],
-        default=1,
-        validators=[validators.InputRequired()])
-    TQ3 = TextField(label='Please justify your answer below.', default='No comment')
-
-    Q5 = RadioField(
-        label='5. Where is the testing taking place? (lab, home, classroom, public space e.g. museum or library)',
-        coerce=int,
-        choices=[(1,'CLR [Lab or clinical testing room]'),
-                 (2,'PNLRA [Lab set up to look like a classroom]'),
-                 (3,'NRWRA [School classroom with little/no experimenter presence and interference into teaching activities')],
-        default=1,
-        validators=[validators.InputRequired()])
-    TQ5 = TextField(label='Please justify your answer below.',default='No comment')
-
-    Q6 = RadioField(
-        label='6. What are your measures?',
-        coerce=int,
-        choices=[(1,'CLR [Well-researched brain correlates of a specific cognitive process in typical conditions]'),
-                 (2,'PNLRA [Canonical brain correlates in non-traditional laboratory settings and/or using more portable brain imaging tools]'),
-                 (3,'NRWRA [Portable brain imaging tools in external environments to test for canonical brain correlates of cognitive processes]')],
-        default=1,
-        validators=[validators.InputRequired()])
-    TQ6 = TextField(label='Please justify your answer below.', default='No comment')
-
-        #########################################################################################################################################################
+def indivQ(N):# Define the task related questions
         # TASK Q2
-    Q4b = RadioField(
-        label='3.2 If you have a second task, describe the kind of stimuli used in your second task.',
-        coerce=int,
-        choices=[(1,'CLR [Static stimuli, typical for perceptual/cognitive studies, like face images]'),
-                 (2,'PNLRA [Dynamic stimuli, like dynamic faces on video]'),
-                 (3,'NRWRA [Fully naturalistically sampled stimuli in the real world, like persons during a social interaction]'),
-                 (4,'No second task')],
-        default=4,
-        validators=[validators.InputRequired()])   
-    TQ4b = TextField(label='Please justify your answer below.', default='No comment')
+        TASK2 = TextField(label='If you have '+str(N)+' tasks, would you like to titulate it',default='No '+str(N)+' task')
 
-    Q3b = RadioField(
-        label='4.2 If you have a second task, describe your experimental approach.',
-        coerce=int,
-        choices=[(1,'CLR [Working memory task for shapes presented on a screen]'),
-                 (2,'PNLRA [Test of memory after viewing a movie]'),
-                 (3,'NRWRA [Test of memory of an interaction after a prolonged delay that involved other activities]'),
-                 (4,'No second task')],
-        default=4,
-        validators=[validators.InputRequired()])
-    TQ3b = TextField(label='Please justify your answer below.', default='No comment')
+        Q3b = RadioField(
+            label='Task '+str(N)+'.3 If you have '+str(N)+' tasks, how its testing site reflects the context (R1a/b)?',
+            coerce=int,
+            choices=[(1,'CLR [Lab/ clinical testing room]'),
+                    (2,'PNLRA [Lab set up to look like a classroom]'),
+                    (3,'NRWRA [Classroom with little/no experimenter presence and interference into teaching activities]'),
+                    (4,'No '+str(N)+' task')],
+            default=4,
+            validators=[validators.InputRequired()])   
+        TQ3b = TextField(label='Please justify your answer below.', default='No comment')
 
+        Q4b = RadioField(
+            label='Task '+str(N)+'.4. If you have '+str(N)+' task, how your task reflects that context?',
+            coerce=int,
+            choices=[(1,'CLR [Working memory task for shapes presented on a screen]'),
+                    (2,'PNLRA [Test of memory after viewing a movie]'),
+                    (3,'NRWRA [Test of memory of an interaction after a prolonged delay that involved other activities]'),
+                    (4,'No '+str(N)+'task')],
 
-    Q5b = RadioField(
-        label='5.2 If you have a second task, where is the testing taking place?',
-        coerce=int,
-        choices=[(1,'CLR [Lab or clinical testing room]'),
-                 (2,'PNLRA [Lab set up to look like a classroom]'),
-                 (3,'NRWRA [School classroom with little/no experimenter presence and interference into teaching activities'),
-                 (4,'No second task')],
+            default=4,
+            validators=[validators.InputRequired()])
+        TQ4b = TextField(label='Please justify your answer below.', default='No comment')
 
-        default=4,
-        validators=[validators.InputRequired()])
-    TQ5b = TextField(label='Please justify your answer below.', default='No comment')
+        Q5b = RadioField(
+            label='Task '+str(N)+'.5. If you have '+str(N)+' tasks, how your stimuli reflect that context?',
+            coerce=int,
+            choices=[(1,'CLR [Static stimuli, typical for perceptual/cognitive studies, like face images]'),
+                    (2,'PNLRA [Dynamic stimuli, like dynamic faces on video] '),
+                    (3,'NRWRA [Fully naturalistically sampled stimuli: people during social interaction]'),
+                    (4,'No '+str(N)+' task')],
+            default=4,
+            validators=[validators.InputRequired()])
+        TQ5b = TextField(label='Please justify your answer below.',default='No comment')
 
-    Q6b = RadioField(
-        label='6.2 If you have a second task, what is it measuring?',
-        coerce=int,
-     choices=[(1,'CLR [Well-researched brain correlates of a specific cognitive process in typical conditions]'),
-                 (2,'PNLRA [Canonical brain correlates in non-traditional laboratory settings and/or using more portable brain imaging tools]'),
-                 (3,'NRWRA [Portable brain imaging tools in external environments to test for canonical brain correlates of cognitive processes]'),
-                 (4,'No second task')],
-        default=4,
-        validators=[validators.InputRequired()])
-    TQ6b = TextField(label='Please justify your answer below.', default='No comment')
+        Q6b = RadioField(
+            label='Task '+str(N)+'.6. If you have '+str(N)+' tasks, how your measures reflect that behavior?',
+            coerce=int,
+            choices=[(1,'CLR [Well-researched brain correlates of a specific cognitive process in typical conditions]'),
+                    (2,'PNLRA [Canonical brain correlates in non-traditional laboratory settings and/or using more portable brain imaging tools]'),
+                    (3,'NRWRA [Portable brain imaging tools in external environments to test for canonical brain correlates of cognitive processes]'),
+                    (4,'No '+str(N)+' task')],
+            default=4,
+            validators=[validators.InputRequired()])
+        TQ6b = TextField(label='Please justify your answer below.', default='No comment')
 
-#########################################################################################################################################################
-        # TASK Q3       
-    Q4c = RadioField(
-       label='3.3 If you have a third task, describe the kind of stimuli used in your third task.',
-        coerce=int,
-        choices=[(1,'CLR [Static stimuli, typical for perceptual/cognitive studies, like face images]'),
-                 (2,'PNLRA [Dynamic stimuli, like dynamic faces on video]'),
-                 (3,'NRWRA [Fully naturalistically sampled stimuli in the real world, like persons during a social interaction]'),
-                 (4,'No third task')],
+        return (TASK2,Q3b,TQ3b,Q4b,TQ4b,Q5b,TQ5b,Q6b,TQ6b)
 
-        default=4,
-        validators=[validators.InputRequired()])   
-    TQ4c = TextField(label='Please justify your answer below.', default='No comment')
-
-    Q3c = RadioField(
-        label='4.3 If you have a third task, describe your experimental approach.',
-        coerce=int,
-        choices=[(1,'CLR [Working memory task for shapes presented on a screen]'),
-                 (2,'PNLRA [Test of memory after viewing a movie]'),
-                 (3,'NRWRA [Test of memory of an interaction after a prolonged delay that involved other activities]'),
-                 (4,'No third task')],
-        default=4,
-        validators=[validators.InputRequired()])
-    TQ3c = TextField(label='Please justify your answer below.', default='No comment')
-
-    Q5c = RadioField(
-        label='5.3 If you have a third task, where is the testing taking place?',
-        coerce=int,
-       choices=[(1,'CLR [Lab or clinical testing room]'),
-                 (2,'PNLRA [Lab set up to look like a classroom]'),
-                 (3,'NRWRA [School classroom with little/no experimenter presence and interference into teaching activities'),
-                 (4,'No third task')],
-        default=4,
-        validators=[validators.InputRequired()])
-    TQ5c = TextField(label='Please justify your answer below.', default='No comment')
-
-    Q6c = RadioField(
-        label='6.3 If you have a third task, what is it measuring?',
-        coerce=int,
-         choices=[(1,'CLR [Well-researched brain correlates of a specific cognitive process in typical conditions]'),
-                 (2,'PNLRA [Canonical brain correlates in non-traditional laboratory settings and/or using more portable brain imaging tools]'),
-                 (3,'NRWRA [Portable brain imaging tools in external environments to test for canonical brain correlates of cognitive processes]'),
-                 (4,'No third task')],
-        default=4,
-        validators=[validators.InputRequired()])
-    TQ6c = TextField(
-        label='Please justify your answer below.',
-        default='No comment')
-#########################################################################################################################################################################
-
-    Q7 = RadioField(
-        label='7. How important your recruitment approach is for generalizing from your results? When answering this question, consider how you recruit participants for your study, and whether your sample is representative of, e.g., your region.',
-        coerce=int,
-        choices=[(1,'CLR [Convenience sample, such as undergraduate students at a university]'),
-                 (2,'PNLRA [Community-based recruitment]'),
-                 (3,'NRWRA [A large, nationally representative sample of school districts in a city]')],
-        default=1,
-        validators=[validators.InputRequired()])
-    TQ7 = TextField(
-        label='Please justify your answer below.',
-        default='No comment')
-
+def interventionQ():# Define the intervention questions
+    # INTERTITLE,Q8,TQ8,Q9,TQ9,Q10,TQ10,Q11,TQ11,Q12,TQ12 = interventionQ()
+    INTERTITLE = TextField(label='Would you like to titulate your intervention',default='No intervention title')   
     Q8 = RadioField(
-        label='8. Are non-research stakeholders involved? (teachers, parents, institutions, clinicians)',
-        coerce=int,
-        choices=[(1,'CLR [Stakeholders only facilitate access to the sample]'),
-                 (2,'PNLRA [Stakeholders involved in conception OR interpretation/writing up the results]'),
-                 (3,'NRWRA [Involvement in conception of project AND interpretation/writing up the results]')],
-        default=1,
-        validators=[validators.InputRequired()])
-    TQ8 = TextField(
-        label='Please justify your answer below.',
-        default='No comment')
-
-    IN1 = RadioField(
-        label='9. Is there an intervention component?',
-        coerce=int,
-        choices=[(11,'yes'),(22,'no')],
-        default=22,
-        validators=[validators.InputRequired()])
-    RIN1 = TextAreaField(
-        label='10. If R9 is yes. Describe the intervention. (What kind of stimuli are you using for the intervention? How naturalistic are your stimuli? Where is the intervention taking place? Are non-research stakeholders involved?)',
-        default='No intervention')
-
-    Q11 = RadioField(
-        label='11. If R9 is yes, please indicate where your intervention fits in best. ',
+        label='9. Related to intervention component, please indicate where your intervention fits in best.',
         coerce=int,
         choices=[(1,'CLR [Children play a game on a laptop/ tablet at the lab/ clinic supervised by experimenters and/or parents]'),
                  (2,'PNLRA [Children play a game on a laptop/ tablet at home supervised by parents]'),
@@ -199,11 +63,546 @@ class InputForm(Form):
                  (4,'No intervention component')],
         default=4,
         validators=[validators.InputRequired()])
-    TQ11 = TextField(
+    TQ8 = TextField(
         label='Please justify your answer below.',
         default='No comment')
+    Q9 = RadioField(
+        label='10. how your intervention testing site reflects the context (R1a/b)?',
+        coerce=int,
+        choices=[(1,'CLR [Lab/ clinical testing room]'),
+                 (2,'PNLRA [Lab set up to look like a classroom]'),
+                 (3,'NRWRA [Classroom with little/no experimenter presence and interference into teaching activities]'),
+                 (4,'No intervention')],
+        default=4,
+        validators=[validators.InputRequired()])   
+    TQ9 = TextField(label='Please justify your answer below.', default='No comment')
+    Q10 = RadioField(
+        label='11. how your intervention task/s reflects that context?',
+        coerce=int,
+        choices=[(1,'CLR [Working memory task for shapes presented on a screen]'),
+                 (2,'PNLRA [Test of memory after viewing a movie]'),
+                 (3,'NRWRA [Test of memory of an interaction after a prolonged delay that involved other activities]'),
+                 (4,'No intervention')],
+        default=4,
+        validators=[validators.InputRequired()])
+    TQ10 = TextField(label='Please justify your answer below.', default='No comment')
+    Q11 = RadioField(
+        label='12. how your intervention stimuli reflect that context?',
+        coerce=int,
+        choices=[(1,'CLR [Static stimuli, typical for perceptual/cognitive studies, like face images]'),
+                 (2,'PNLRA [Dynamic stimuli, like dynamic faces on video] '),
+                 (3,'NRWRA [Fully naturalistically sampled stimuli: people during social interaction]'),
+                 (4,'No intervention task')],
+        default=4,
+        validators=[validators.InputRequired()])
+    TQ11 = TextField(label='Please justify your answer below.',default='No comment')
+    Q12 = RadioField(
+        label='13. how your intervention measures reflect that behavior?',
+        coerce=int,
+        choices=[(1,'CLR [Well-researched brain correlates of a specific cognitive process in typical conditions]'),
+                 (2,'PNLRA [Canonical brain correlates in non-traditional laboratory settings and/or using more portable brain imaging tools]'),
+                 (3,'NRWRA [Portable brain imaging tools in external environments to test for canonical brain correlates of cognitive processes]'),
+                 (4,'No intervention')],
+        default=4,
+        validators=[validators.InputRequired()])
+    TQ12 = TextField(label='Please justify your answer below.', default='No comment')
+    return (INTERTITLE,Q8,TQ8,Q9,TQ9,Q10,TQ10,Q11,TQ11,Q12,TQ12)
+
+class NumexpForm(Form):
+    Num_exp = IntegerField(
+        label='1) Insert number of experiments',
+        default=1,
+        validators=[validators.InputRequired(),validators.NumberRange(min=1, max=3, message='Up to 3')])
+
+    Intervention_switcher = RadioField(
+        '2) Is there an intervention component?',
+        [validators.DataRequired()],
+        choices=[('Yes', 'Yes, I have an intervention component'), ('No', 'No, I do not have an Intervention')], default='No' )
+
+class formOneTaskNoInt(Form):
+    Q1a = TextField(
+        label='1a) What behavior are you trying to observe?',
+        default='...',
+        validators=[validators.InputRequired()])
+    
+    Q1b = TextField(
+        label='1b) What is the context you aim to generalize to?',
+        default='...',
+        validators=[validators.InputRequired()])
+
+    Q2 = RadioField(
+        label='2. ...how your sample reflects that context?',
+        coerce=int,
+        choices=[(1,'CLR [Convenience sample, such as undergraduate students at a university]'),
+                 (2,'PNLRA [Community-based recruitment]'),
+                 (3,'NRWRA  [A large, nationally representative sample of school districts in a city]')],
+        default=1,
+        validators=[validators.InputRequired()])
+    TQ2 = TextField(label='Please justify your answer below.', default='No comment')
+    # TASK Q1
+    TASK1 = TextField(label='Would you like to titulate your task',default='No title')
+    Q3 = RadioField(
+        label='3. ...how your testing site reflects that context?',
+        coerce=int,
+        choices=[(1,'CLR [Lab/ clinical testing room]'),
+                 (2,'PNLRA [Lab set up to look like a classroom]'),
+                 (3,'NRWRA [Classroom with little/no experimenter presence and interference into teaching activities]')],
+        default=1,
+        validators=[validators.InputRequired()])   
+    TQ3 = TextField(label='Please justify your answer below.',default='No comment')
+
+    Q4 = RadioField(
+        label='4. ... how your task reflects that context?',
+        coerce=int,
+        choices=[(1,'CLR [Working memory task for shapes presented on a screen]'),
+                 (2,'PNLRA [Test of memory after viewing a movie]'),
+                 (3,'NRWRA [Test of memory of an interaction after a prolonged delay that involved other activities]')],
+        default=1,
+        validators=[validators.InputRequired()])
+    TQ4 = TextField(label='Please justify your answer below.', default='No comment')
+
+    Q5 = RadioField(
+        label='5. ... how your stimuli reflect that context?',
+        coerce=int,
+        choices=[(1,'CLR [Static stimuli, typical for perceptual/cognitive studies, like face images]'),
+                 (2,'PNLRA [Dynamic stimuli, like dynamic faces on video] '),
+                 (3,'NRWRA [Fully naturalistically sampled stimuli: people during social interaction]')],
+        default=1,
+        validators=[validators.InputRequired()])
+    TQ5 = TextField(label='Please justify your answer below.',default='No comment')
+
+    Q6 = RadioField(
+        label='6. ...how your measures reflect that behavior?',
+        coerce=int,
+        choices=[(1,'CLR [Well-researched brain correlates of a specific cognitive process in typical conditions]'),
+                 (2,'PNLRA [Canonical brain correlates in non-traditional laboratory settings and/or using more portable tools]'),
+                 (3,'NRWRA [Portable imaging tools in external environments to test for canonical correlates of cognitive processes]')],
+        default=1,
+        validators=[validators.InputRequired()])
+    TQ6 = TextField(label='Please justify your answer below.', default='No comment')
+
+    Q7 = RadioField(
+        label='7. Are non-research stakeholders involved? ( teachers, caretaker, institutions, clinicians)',
+        coerce=int,
+        choices=[(1,'CLR [Stakeholders only facilitate access to the sample]'),
+                 (2,'PNLRA [Stakeholders involved in conception OR interpretation/writing up the results]'),
+                 (3,'NRWRA [Involvement in conception of project AND interpretation/writing up the results]')],
+        default=1,
+        validators=[validators.InputRequired()])
+    TQ7 = TextField(
+        label='Please justify your answer below.',
+        default='No comment')
+ 
+    TQF = TextAreaField(
+        label='8. Please indicate in which category (CLR, PNLRA, and NRWRA) you see your research fits best and state the reasons.',
+        default='No comment')
+        #########################################################################################################################################################
+       
+class formTwoTaskNoInt(Form):
+    Q1a = TextField(
+        label='1a) What behavior are you trying to observe?',
+        default='...',
+        validators=[validators.InputRequired()])
+    
+    Q1b = TextField(
+        label='1b) What is the context you aim to generalize to?',
+        default='...',
+        validators=[validators.InputRequired()])
+
+    Q2 = RadioField(
+        label='2. ...how your sample reflects that context?',
+        coerce=int,
+        choices=[(1,'CLR [Convenience sample, such as undergraduate students at a university]'),
+                 (2,'PNLRA [Community-based recruitment]'),
+                 (3,'NRWRA  [A large, nationally representative sample of school districts in a city]')],
+        default=1,
+        validators=[validators.InputRequired()])
+    TQ2 = TextField(label='Please justify your answer below.', default='No comment')
+    # TASK Q1
+    TASK1 = TextField(label='Would you like to titulate your task',default='No title')
+    Q3 = RadioField(
+        label='3. ...how your testing site reflects that context?',
+        coerce=int,
+        choices=[(1,'CLR [Lab/ clinical testing room]'),
+                 (2,'PNLRA [Lab set up to look like a classroom]'),
+                 (3,'NRWRA [Classroom with little/no experimenter presence and interference into teaching activities]')],
+        default=1,
+        validators=[validators.InputRequired()])   
+    TQ3 = TextField(label='Please justify your answer below.',default='No comment')
+
+    Q4 = RadioField(
+        label='4. ... how your task reflects that context?',
+        coerce=int,
+        choices=[(1,'CLR [Working memory task for shapes presented on a screen]'),
+                 (2,'PNLRA [Test of memory after viewing a movie]'),
+                 (3,'NRWRA [Test of memory of an interaction after a prolonged delay that involved other activities]')],
+        default=1,
+        validators=[validators.InputRequired()])
+    TQ4 = TextField(label='Please justify your answer below.', default='No comment')
+
+    Q5 = RadioField(
+        label='5. ... how your stimuli reflect that context?',
+        coerce=int,
+        choices=[(1,'CLR [Static stimuli, typical for perceptual/cognitive studies, like face images]'),
+                 (2,'PNLRA [Dynamic stimuli, like dynamic faces on video] '),
+                 (3,'NRWRA [Fully naturalistically sampled stimuli: people during social interaction]')],
+        default=1,
+        validators=[validators.InputRequired()])
+    TQ5 = TextField(label='Please justify your answer below.',default='No comment')
+
+    Q6 = RadioField(
+        label='6. ...how your measures reflect that behavior?',
+        coerce=int,
+        choices=[(1,'CLR [Well-researched brain correlates of a specific cognitive process in typical conditions]'),
+                 (2,'PNLRA [Canonical brain correlates in non-traditional laboratory settings and/or using more portable tools]'),
+                 (3,'NRWRA [Portable imaging tools in external environments to test for canonical correlates of cognitive processes]')],
+        default=1,
+        validators=[validators.InputRequired()])
+    TQ6 = TextField(label='Please justify your answer below.', default='No comment')
+
+    Q7 = RadioField(
+        label='7. Are non-research stakeholders involved? ( teachers, caretaker, institutions, clinicians)',
+        coerce=int,
+        choices=[(1,'CLR [Stakeholders only facilitate access to the sample]'),
+                 (2,'PNLRA [Stakeholders involved in conception OR interpretation/writing up the results]'),
+                 (3,'NRWRA [Involvement in conception of project AND interpretation/writing up the results]')],
+        default=1,
+        validators=[validators.InputRequired()])
+    TQ7 = TextField(
+        label='Please justify your answer below.',
+        default='No comment')
+ 
+    TQF = TextAreaField(
+        label='8. Please indicate in which category (CLR, PNLRA, and NRWRA) you see your research fits best and state the reasons.',
+        default='No comment')
+    TASK2,Q3b,TQ3b,Q4b,TQ4b,Q5b,TQ5b,Q6b,TQ6b =  indivQ(2)
+        
+        #########################################################################################################################################################
+       
+class formThreeTaskNoInt(Form):
+    Q1a = TextField(
+        label='1a) What behavior are you trying to observe?',
+        default='...',
+        validators=[validators.InputRequired()])
+    
+    Q1b = TextField(
+        label='1b) What is the context you aim to generalize to?',
+        default='...',
+        validators=[validators.InputRequired()])
+
+    Q2 = RadioField(
+        label='2. ...how your sample reflects that context?',
+        coerce=int,
+        choices=[(1,'CLR [Convenience sample, such as undergraduate students at a university]'),
+                 (2,'PNLRA [Community-based recruitment]'),
+                 (3,'NRWRA  [A large, nationally representative sample of school districts in a city]')],
+        default=1,
+        validators=[validators.InputRequired()])
+    TQ2 = TextField(label='Please justify your answer below.', default='No comment')
+    # TASK Q1
+    TASK1 = TextField(label='Would you like to titulate your task',default='No title')
+    Q3 = RadioField(
+        label='3. ...how your testing site reflects that context?',
+        coerce=int,
+        choices=[(1,'CLR [Lab/ clinical testing room]'),
+                 (2,'PNLRA [Lab set up to look like a classroom]'),
+                 (3,'NRWRA [Classroom with little/no experimenter presence and interference into teaching activities]')],
+        default=1,
+        validators=[validators.InputRequired()])   
+    TQ3 = TextField(label='Please justify your answer below.',default='No comment')
+
+    Q4 = RadioField(
+        label='4. ... how your task reflects that context?',
+        coerce=int,
+        choices=[(1,'CLR [Working memory task for shapes presented on a screen]'),
+                 (2,'PNLRA [Test of memory after viewing a movie]'),
+                 (3,'NRWRA [Test of memory of an interaction after a prolonged delay that involved other activities]')],
+        default=1,
+        validators=[validators.InputRequired()])
+    TQ4 = TextField(label='Please justify your answer below.', default='No comment')
+
+    Q5 = RadioField(
+        label='5. ... how your stimuli reflect that context?',
+        coerce=int,
+        choices=[(1,'CLR [Static stimuli, typical for perceptual/cognitive studies, like face images]'),
+                 (2,'PNLRA [Dynamic stimuli, like dynamic faces on video] '),
+                 (3,'NRWRA [Fully naturalistically sampled stimuli: people during social interaction]')],
+        default=1,
+        validators=[validators.InputRequired()])
+    TQ5 = TextField(label='Please justify your answer below.',default='No comment')
+
+    Q6 = RadioField(
+        label='6. ...how your measures reflect that behavior?',
+        coerce=int,
+        choices=[(1,'CLR [Well-researched brain correlates of a specific cognitive process in typical conditions]'),
+                 (2,'PNLRA [Canonical brain correlates in non-traditional laboratory settings and/or using more portable tools]'),
+                 (3,'NRWRA [Portable imaging tools in external environments to test for canonical correlates of cognitive processes]')],
+        default=1,
+        validators=[validators.InputRequired()])
+    TQ6 = TextField(label='Please justify your answer below.', default='No comment')
+
+    Q7 = RadioField(
+        label='7. Are non-research stakeholders involved? ( teachers, caretaker, institutions, clinicians)',
+        coerce=int,
+        choices=[(1,'CLR [Stakeholders only facilitate access to the sample]'),
+                 (2,'PNLRA [Stakeholders involved in conception OR interpretation/writing up the results]'),
+                 (3,'NRWRA [Involvement in conception of project AND interpretation/writing up the results]')],
+        default=1,
+        validators=[validators.InputRequired()])
+    TQ7 = TextField(
+        label='Please justify your answer below.',
+        default='No comment')
+ 
+    TQF = TextAreaField(
+        label='8. Please indicate in which category (CLR, PNLRA, and NRWRA) you see your research fits best and state the reasons.',
+        default='No comment')
+    TASK2,Q3b,TQ3b,Q4b,TQ4b,Q5b,TQ5b,Q6b,TQ6b =  indivQ(2)
+    TASK3,Q3c,TQ3c,Q4c,TQ4c,Q5c,TQ5c,Q6c,TQ6c =  indivQ(3)
+   
+        #########################################################################################################################################################
+       
+class formOneTaskYesInt(Form):
+    Q1a = TextField(
+        label='1a) What behavior are you trying to observe?',
+        default='...',
+        validators=[validators.InputRequired()])
+    
+    Q1b = TextField(
+        label='1b) What is the context you aim to generalize to?',
+        default='...',
+        validators=[validators.InputRequired()])
+
+    Q2 = RadioField(
+        label='2. ...how your sample reflects that context?',
+        coerce=int,
+        choices=[(1,'CLR [Convenience sample, such as undergraduate students at a university]'),
+                 (2,'PNLRA [Community-based recruitment]'),
+                 (3,'NRWRA  [A large, nationally representative sample of school districts in a city]')],
+        default=1,
+        validators=[validators.InputRequired()])
+    TQ2 = TextField(label='Please justify your answer below.', default='No comment')
+    # TASK Q1
+    TASK1 = TextField(label='Would you like to titulate your task',default='No title')
+    Q3 = RadioField(
+        label='3. ...how your testing site reflects that context?',
+        coerce=int,
+        choices=[(1,'CLR [Lab/ clinical testing room]'),
+                 (2,'PNLRA [Lab set up to look like a classroom]'),
+                 (3,'NRWRA [Classroom with little/no experimenter presence and interference into teaching activities]')],
+        default=1,
+        validators=[validators.InputRequired()])   
+    TQ3 = TextField(label='Please justify your answer below.',default='No comment')
+
+    Q4 = RadioField(
+        label='4. ... how your task reflects that context?',
+        coerce=int,
+        choices=[(1,'CLR [Working memory task for shapes presented on a screen]'),
+                 (2,'PNLRA [Test of memory after viewing a movie]'),
+                 (3,'NRWRA [Test of memory of an interaction after a prolonged delay that involved other activities]')],
+        default=1,
+        validators=[validators.InputRequired()])
+    TQ4 = TextField(label='Please justify your answer below.', default='No comment')
+
+    Q5 = RadioField(
+        label='5. ... how your stimuli reflect that context?',
+        coerce=int,
+        choices=[(1,'CLR [Static stimuli, typical for perceptual/cognitive studies, like face images]'),
+                 (2,'PNLRA [Dynamic stimuli, like dynamic faces on video] '),
+                 (3,'NRWRA [Fully naturalistically sampled stimuli: people during social interaction]')],
+        default=1,
+        validators=[validators.InputRequired()])
+    TQ5 = TextField(label='Please justify your answer below.',default='No comment')
+
+    Q6 = RadioField(
+        label='6. ...how your measures reflect that behavior?',
+        coerce=int,
+        choices=[(1,'CLR [Well-researched brain correlates of a specific cognitive process in typical conditions]'),
+                 (2,'PNLRA [Canonical brain correlates in non-traditional laboratory settings and/or using more portable tools]'),
+                 (3,'NRWRA [Portable imaging tools in external environments to test for canonical correlates of cognitive processes]')],
+        default=1,
+        validators=[validators.InputRequired()])
+    TQ6 = TextField(label='Please justify your answer below.', default='No comment')
+
+    Q7 = RadioField(
+        label='7. Are non-research stakeholders involved? ( teachers, caretaker, institutions, clinicians)',
+        coerce=int,
+        choices=[(1,'CLR [Stakeholders only facilitate access to the sample]'),
+                 (2,'PNLRA [Stakeholders involved in conception OR interpretation/writing up the results]'),
+                 (3,'NRWRA [Involvement in conception of project AND interpretation/writing up the results]')],
+        default=1,
+        validators=[validators.InputRequired()])
+    TQ7 = TextField(
+        label='Please justify your answer below.',
+        default='No comment')
+ 
+    TQF = TextAreaField(
+        label='8. Please indicate in which category (CLR, PNLRA, and NRWRA) you see your research fits best and state the reasons.',
+        default='No comment')
+    INTERTITLE,Q8,TQ8,Q9,TQ9,Q10,TQ10,Q11,TQ11,Q12,TQ12 = interventionQ()
+        #########################################################################################################################################################
+       
+class formTwoTaskYesInt(Form):
+    Q1a = TextField(
+        label='1a) What behavior are you trying to observe?',
+        default='...',
+        validators=[validators.InputRequired()])
+    
+    Q1b = TextField(
+        label='1b) What is the context you aim to generalize to?',
+        default='...',
+        validators=[validators.InputRequired()])
+
+    Q2 = RadioField(
+        label='2. ...how your sample reflects that context?',
+        coerce=int,
+        choices=[(1,'CLR [Convenience sample, such as undergraduate students at a university]'),
+                 (2,'PNLRA [Community-based recruitment]'),
+                 (3,'NRWRA  [A large, nationally representative sample of school districts in a city]')],
+        default=1,
+        validators=[validators.InputRequired()])
+    TQ2 = TextField(label='Please justify your answer below.', default='No comment')
+    # TASK Q1
+    TASK1 = TextField(label='Would you like to titulate your task',default='No title')
+    Q3 = RadioField(
+        label='3. ...how your testing site reflects that context?',
+        coerce=int,
+        choices=[(1,'CLR [Lab/ clinical testing room]'),
+                 (2,'PNLRA [Lab set up to look like a classroom]'),
+                 (3,'NRWRA [Classroom with little/no experimenter presence and interference into teaching activities]')],
+        default=1,
+        validators=[validators.InputRequired()])   
+    TQ3 = TextField(label='Please justify your answer below.',default='No comment')
+
+    Q4 = RadioField(
+        label='4. ... how your task reflects that context?',
+        coerce=int,
+        choices=[(1,'CLR [Working memory task for shapes presented on a screen]'),
+                 (2,'PNLRA [Test of memory after viewing a movie]'),
+                 (3,'NRWRA [Test of memory of an interaction after a prolonged delay that involved other activities]')],
+        default=1,
+        validators=[validators.InputRequired()])
+    TQ4 = TextField(label='Please justify your answer below.', default='No comment')
+
+    Q5 = RadioField(
+        label='5. ... how your stimuli reflect that context?',
+        coerce=int,
+        choices=[(1,'CLR [Static stimuli, typical for perceptual/cognitive studies, like face images]'),
+                 (2,'PNLRA [Dynamic stimuli, like dynamic faces on video] '),
+                 (3,'NRWRA [Fully naturalistically sampled stimuli: people during social interaction]')],
+        default=1,
+        validators=[validators.InputRequired()])
+    TQ5 = TextField(label='Please justify your answer below.',default='No comment')
+
+    Q6 = RadioField(
+        label='6. ...how your measures reflect that behavior?',
+        coerce=int,
+        choices=[(1,'CLR [Well-researched brain correlates of a specific cognitive process in typical conditions]'),
+                 (2,'PNLRA [Canonical brain correlates in non-traditional laboratory settings and/or using more portable tools]'),
+                 (3,'NRWRA [Portable imaging tools in external environments to test for canonical correlates of cognitive processes]')],
+        default=1,
+        validators=[validators.InputRequired()])
+    TQ6 = TextField(label='Please justify your answer below.', default='No comment')
+
+    Q7 = RadioField(
+        label='7. Are non-research stakeholders involved? ( teachers, caretaker, institutions, clinicians)',
+        coerce=int,
+        choices=[(1,'CLR [Stakeholders only facilitate access to the sample]'),
+                 (2,'PNLRA [Stakeholders involved in conception OR interpretation/writing up the results]'),
+                 (3,'NRWRA [Involvement in conception of project AND interpretation/writing up the results]')],
+        default=1,
+        validators=[validators.InputRequired()])
+    TQ7 = TextField(
+        label='Please justify your answer below.',
+        default='No comment')
+ 
+    TQF = TextAreaField(
+        label='8. Please indicate in which category (CLR, PNLRA, and NRWRA) you see your research fits best and state the reasons.',
+        default='No comment')
+    INTERTITLE,Q8,TQ8,Q9,TQ9,Q10,TQ10,Q11,TQ11,Q12,TQ12 = interventionQ()
+    TASK2,Q3b,TQ3b,Q4b,TQ4b,Q5b,TQ5b,Q6b,TQ6b =  indivQ(2)
+        
+        #########################################################################################################################################################
+       
+class formThreeTaskYesInt(Form):
+    Q1a = TextField(
+        label='1a) What behavior are you trying to observe?',
+        default='...',
+        validators=[validators.InputRequired()])
+    
+    Q1b = TextField(
+        label='1b) What is the context you aim to generalize to?',
+        default='...',
+        validators=[validators.InputRequired()])
+
+    Q2 = RadioField(
+        label='2. ...how your sample reflects that context?',
+        coerce=int,
+        choices=[(1,'CLR [Convenience sample, such as undergraduate students at a university]'),
+                 (2,'PNLRA [Community-based recruitment]'),
+                 (3,'NRWRA  [A large, nationally representative sample of school districts in a city]')],
+        default=1,
+        validators=[validators.InputRequired()])
+    TQ2 = TextField(label='Please justify your answer below.', default='No comment')
+    # TASK Q1
+    TASK1 = TextField(label='Would you like to titulate your task',default='No title')
+    Q3 = RadioField(
+        label='3. ...how your testing site reflects that context?',
+        coerce=int,
+        choices=[(1,'CLR [Lab/ clinical testing room]'),
+                 (2,'PNLRA [Lab set up to look like a classroom]'),
+                 (3,'NRWRA [Classroom with little/no experimenter presence and interference into teaching activities]')],
+        default=1,
+        validators=[validators.InputRequired()])   
+    TQ3 = TextField(label='Please justify your answer below.',default='No comment')
+
+    Q4 = RadioField(
+        label='4. ... how your task reflects that context?',
+        coerce=int,
+        choices=[(1,'CLR [Working memory task for shapes presented on a screen]'),
+                 (2,'PNLRA [Test of memory after viewing a movie]'),
+                 (3,'NRWRA [Test of memory of an interaction after a prolonged delay that involved other activities]')],
+        default=1,
+        validators=[validators.InputRequired()])
+    TQ4 = TextField(label='Please justify your answer below.', default='No comment')
+
+    Q5 = RadioField(
+        label='5. ... how your stimuli reflect that context?',
+        coerce=int,
+        choices=[(1,'CLR [Static stimuli, typical for perceptual/cognitive studies, like face images]'),
+                 (2,'PNLRA [Dynamic stimuli, like dynamic faces on video] '),
+                 (3,'NRWRA [Fully naturalistically sampled stimuli: people during social interaction]')],
+        default=1,
+        validators=[validators.InputRequired()])
+    TQ5 = TextField(label='Please justify your answer below.',default='No comment')
+
+    Q6 = RadioField(
+        label='6. ...how your measures reflect that behavior?',
+        coerce=int,
+        choices=[(1,'CLR [Well-researched brain correlates of a specific cognitive process in typical conditions]'),
+                 (2,'PNLRA [Canonical brain correlates in non-traditional laboratory settings and/or using more portable tools]'),
+                 (3,'NRWRA [Portable imaging tools in external environments to test for canonical correlates of cognitive processes]')],
+        default=1,
+        validators=[validators.InputRequired()])
+    TQ6 = TextField(label='Please justify your answer below.', default='No comment')
+
+    Q7 = RadioField(
+        label='7. Are non-research stakeholders involved? ( teachers, caretaker, institutions, clinicians)',
+        coerce=int,
+        choices=[(1,'CLR [Stakeholders only facilitate access to the sample]'),
+                 (2,'PNLRA [Stakeholders involved in conception OR interpretation/writing up the results]'),
+                 (3,'NRWRA [Involvement in conception of project AND interpretation/writing up the results]')],
+        default=1,
+        validators=[validators.InputRequired()])
+    TQ7 = TextField(
+        label='Please justify your answer below.',
+        default='No comment')
+ 
+    TQF = TextAreaField(
+        label='8. Please indicate in which category (CLR, PNLRA, and NRWRA) you see your research fits best and state the reasons.',
+        default='No comment')
+    INTERTITLE,Q8,TQ8,Q9,TQ9,Q10,TQ10,Q11,TQ11,Q12,TQ12 = interventionQ()
+    TASK2,Q3b,TQ3b,Q4b,TQ4b,Q5b,TQ5b,Q6b,TQ6b =  indivQ(2)
+    TASK3,Q3c,TQ3c,Q4c,TQ4c,Q5c,TQ5c,Q6c,TQ6c =  indivQ(3)
+   
 
     
-    TQF = TextAreaField(
-        label='12. Lastly, please indicate in which category (CLR, PNLRA, and NRWRA) you see your research fits best and state the reasons.',
-        default='No comment')

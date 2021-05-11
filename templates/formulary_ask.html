@@ -1,7 +1,6 @@
 {% extends "layout.html" %}
 
 {% block content %}
-
 <div class="jumbotron">
   <h1 class="display-4">EVA form</h1>
   <p class="lead">Ecological Validity Assessment (EVA) Tool.</p>
@@ -9,15 +8,14 @@
   <section class="seccion">
     <section class="seccion">
       <article>
-        <p class="pagraph">Below you find some short questions regarding your research project. After submitting the form, a summary with your
-          answers and descriptions accompanied by a compass plot will appear. The graph indicates the match of your research idea with three categories that are controlled laboratory-based, partially naturalistic laboratory and naturalistic real-world
-          research [controlled laboratory research (CLR), partially naturalistic laboratory research approach (PNLRA), and
-          naturalistic real-world research approach (NRWRA)]. For every category, we added one main example in brackets.</p>
-          <p>If you need more examples for questions 3:8 and 11, please see a list here <a href="{{ url_for('moreinfo')}}">Examples and more</a> .</p>
+        <p class="pagraph">Below you find two questions to set up the form. </p>
+
 
       </article>
     </section>
+
     <form method=post action="" id="contact">
+
       <div class="questionary">
         {% for field in form %}
 
@@ -43,15 +41,15 @@
 
         {% endfor %}
 
-        {% if result != None %}
+        <!-- {% if result != None %}
         <td>
           <p>
             <img id='resultado' src="data:image/png;base64,{{ result }}">
           </p>
         </td>
-        {% endif %}
+        {% endif %} -->
         <div class="container" id="contact">
-          <button type="submit" name="submit" id="contact-submit" data-submit="...Sending">Submit form</button>
+          <button type="submit" name="submit" id="contact-submit" data-submit="...Sending">Submit and go to the form</button>
         </div>
 
     </form>

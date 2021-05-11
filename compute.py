@@ -1,24 +1,64 @@
-def visualize_series(
-    Q1, # string, title
-    Q2,
-    Q3,Q4,Q5,Q6,
+def visualize_series(numExp,intervention,
+    Q1a,Q1b,# Text titles
+    Q2,Q3,Q4,Q5,Q6,
     Q3b,Q4b,Q5b,Q6b,
-    Q3c,Q4c,Q5c,Q6c,
-    Q7,Q8,Q11 # values from questions, 1 2 3 or 4
+    Q3c, Q4c,Q5c,Q6c,
+    Q7,
+    Q8,Q9,Q10,Q11,Q12 # values from questions, 1 2 3 or 4
     ):
-    # Turn independent variable into sympy symbol, stored in x
+# Code adapted from https://www.pythoncharts.com/matplotlib/radar-charts/
     import matplotlib.pyplot as plt
     import numpy as np
 
-
     labels = ['CLR', 'PNLRA', 'NRWRA']
+    if intervention == 'No':
+        if numExp == 1:
+          Qtot=[Q2,Q3,Q4,Q5,Q6,Q7]
+          evalRes = ['Q2,Sa','Q3,TS','Q4,Ta', 'Q5,St','Q6,M','Q7,Sk']
 
-    Q2to10=[Q2,Q3,Q4,Q5,Q6,Q3b,Q4b,Q5b,Q6b,Q3c,Q4c,Q5c,Q6c,Q7,Q8,Q11]
+
+        elif numExp == 2:
+          Qtot=[Q2,Q3,Q4,Q5,Q6,Q3b,Q4b,Q5b,Q6b,Q7]
+          evalRes = ['Q2,Sa.','Q3,TS','Q4,Ta', 'Q5,St','Q6,Me',
+                     'Q2.2,Sa','Q3.2,TS','Q4.2,Ta', 'Q5.2,St','Q6.2,M',
+                     'Q7,Sk']
+        else:
+          Qtot=[Q2,Q3,Q4,Q5,Q6,Q3b,Q4b,Q5b,Q6b,Q3c,Q4c,Q5c,Q6c,Q7]
+          evalRes = ['Q2,Sa','Q3,TS','Q4,Ta', 'Q5,St','Q6,M',
+                     'Q2.2,Sa','Q3.2,TS','Q4.2,Ta', 'Q5.2,St','Q6.2,M',
+                     'Q2.3,Sa','Q3.3,TS','Q4.3,Ta', 'Q5.3,St','Q6.3,M',
+                     'Q7,Sk']
+
+    else:
+        if numExp == 1:
+          Qtot=[Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10,Q11,Q12]
+          evalRes = ['Q2,Sa','Q3,TS','Q4,Ta', 'Q5,St','Q6,M',
+                     'Q8.I,Sa','Q9.I,IS','Q10.I,Ta', 'Q11.I,St','Q12.I,M',
+                     'Q7,Sk']
+
+        elif numExp == 2:
+          Qtot=[Q2,Q3,Q4,Q5,Q6,Q3b,Q4b,Q5b,Q6b,Q7,Q8,Q9,Q10,Q11,Q12]
+          evalRes = ['Q2,Sa','Q3,TS','Q4,Ta', 'Q5,St','Q6,M','Q7,Sk',
+                    'Q2.2,Sa','Q3.2,TS','Q4.2,Ta', 'Q5.2,St','Q6.2,M',
+                     'Q8.I,Sa','Q9.I,IS','Q10.I,Ta', 'Q11.I,St','Q12.I,M']
+
+        else:
+          Qtot=[Q2,Q3,Q4,Q5,Q6,Q3b,Q4b,Q5b,Q6b,Q3c,Q4c,Q5c,Q6c,Q7,Q8,Q9,Q10,Q11,Q12]
+          evalRes = ['Q2,Sa','Q3,TS','Q4,Ta', 'Q5,St','Q6,M',
+                    'Q2.2,Sa','Q3.2,TS','Q4.2,Ta', 'Q5.2,St','Q6.2,M',
+                    'Q2.3,Sa','Q3.3,TS','Q4.3,Ta', 'Q5.3,St','Q6.3,M',
+                     'Q7,Sk','Q8.I,Sa','Q9.I,IS','Q10.I,Ta', 'Q11.I,St','Q12.I,M']
+    
+    FA_val = [val for is_FA, val in zip([x == 1 for x in Qtot ], evalRes) if is_FA]
+    FB_val = [val for is_FB, val in zip([x == 2 for x in Qtot ], evalRes) if is_FB]
+    FC_val = [val for is_FB, val in zip([x == 3 for x in Qtot ], evalRes) if is_FB]
+
+
     # Translate to factor values
-    Tot =  Q2to10.count(1) + Q2to10.count(2) + Q2to10.count(3)
-    FA = Q2to10.count(1)/Tot #1-A: Control factor
-    FB = Q2to10.count(2)/Tot #2-B: Subjective factor
-    FC = Q2to10.count(3)/Tot #3-C: Social factor
+    Tot =  Qtot.count(1) + Qtot.count(2) + Qtot.count(3)
+    FA = Qtot.count(1)/Tot #1-A: Control factor
+    FB = Qtot.count(2)/Tot #2-B: Subjective factor
+    FC = Qtot.count(3)/Tot #3-C: Social factor
     values = [FA,FB,FC]
 
     # Calculate total score as result area / maximum area
@@ -35,11 +75,12 @@ def visualize_series(
 
     
     legenda = '\n'.join((
-    r'CLR = Controlled laboratory research | PNLRA = Partially naturalistic laboratory research approach',
-    r' NRWRA = Naturalistic real-world research approach | BE = Balance Score'))
-    # legenda = '\n'.join((
-    # r'CLR = Controlled laboratory research | PNLRA = Partially naturalistic laboratory research approach',
-    # r' NRWRA = Naturalistic real-world research approach'))
+    r'CLR: '+';'.join(FA_val),
+    r'PNLRA: ' +';'.join(FB_val) ,
+    r'NRWRA: ' +';'.join(FC_val)))
+    #legenda = '\n'.join((
+    #r'CLR = Controlled laboratory research | PNLRA = Partially naturalistic laboratory research approach',
+    #r' NRWRA = Naturalistic real-world research approach | BE = Balance Score'))
 
     num_vars = len(labels)
     # Split the circle into even parts and save the angles
@@ -51,8 +92,9 @@ def visualize_series(
     values += values[:1]
     angles += angles[:1]
     
-    fig, ax = plt.subplots(figsize=(6, 6), subplot_kw=dict(polar=True))
-    
+    fig, ax = plt.subplots(figsize=(7,7), subplot_kw=dict(polar=True))
+    fig.suptitle('Behavior:' + Q1a, fontsize=14, fontweight='bold', color='#4A4A4A')
+
     # Draw the outline of our data.
     ax.plot(angles, values, color='#fe630f', linewidth=1)
     # Fill it in.
@@ -63,7 +105,7 @@ def visualize_series(
     ax.set_theta_direction(-1)
     
     # Draw axis lines for each angle and label.
-    ax.set_thetagrids(np.degrees(angles), labels)
+    ax.set_thetagrids(np.degrees(angles),  ['CLR', 'PNLRA', 'NRWRA','CLR'])
     
     # Go through labels and adjust alignment based on where
     # it is in the circle.
@@ -92,14 +134,16 @@ def visualize_series(
     ax.set_facecolor('#FAFAFA')
     
     # Add chart a title and summary.
-    ax.set_title(Q1, y=1.08)
+    fig.subplots_adjust(top=0.85)
+    ax.set_title('Context: ' + Q1b, y=1.08,color = '#6B6B6B')
+
     # place a text box in upper left in axes coords
     # these are matplotlib.patch.Patch properties
     props = dict(boxstyle='round', facecolor='#e08162', alpha=0.25)
-    ax.text(-0.05, -0.02, textstr, transform=ax.transAxes, fontsize=12,
-        verticalalignment='top')
-    ax.text(-0.1, -0.07, legenda,transform=ax.transAxes, fontsize=8,
-        verticalalignment='top')
+    ax.text(0.5, -0.02, textstr, transform=ax.transAxes, fontsize=12,
+        verticalalignment='top', horizontalalignment='center')
+    ax.text(0.5, -0.07, legenda,transform=ax.transAxes, fontsize=8,
+        verticalalignment='top', horizontalalignment='center')
 
     from io import BytesIO
     figfile = BytesIO()
@@ -110,9 +154,25 @@ def visualize_series(
     return figdata_png.decode('utf8')
 
 if __name__ == '__main__':
-    visualize_series(Q1="Your study aim", Q2=1, 
-    Q3=1, Q4=1, Q5=1, Q6=4,
-    Q3b=2, Q4b=2, Q5b=2, Q6b=2,
-    Q3c=3, Q4c=3, Q5c=3, Q6c=3,
-    Q7=4, Q8=4, Q11=4)
-
+    visualize_series(numExp = 3,intervention = 'Yes',
+      Q1a="Your study aim",Q1b="Context",# Text titles
+      Q2=1, # Sample
+      Q3=1, # Testing site
+      Q4=1, # Task
+      Q5=1, # Stimuli
+      Q6=1, # Measures
+      Q3b=2,
+      Q4b=2,
+      Q5b=3,
+      Q6b=2,
+      Q3c=4,
+      Q4c=3,
+      Q5c=4,
+      Q6c=4,
+      Q7=1, # Stakeholders
+      # Interventon questions 
+      Q8=1,
+      Q9=1,
+      Q10=4,
+      Q11=4,
+      Q12=4)

@@ -1,30 +1,251 @@
-from flask import Flask, render_template,request, flash
-from model import InputForm
+from flask import redirect,Flask, url_for,render_template,request, flash, session
+from model import NumexpForm,formOneTaskNoInt,formTwoTaskNoInt,formThreeTaskNoInt,formOneTaskYesInt,formTwoTaskYesInt,formThreeTaskYesInt
 from compute import visualize_series
 from flask_mail import Message, Mail
+
 import os
 
 app = Flask(__name__)
+app.secret_key = 'EVATool'
 
 @app.route('/')
 def home():
     return render_template('home.html')
 
-@app.route('/Formulary', methods=['GET', 'POST'])
-def formulary():
-    form = InputForm(request.form)
-    if request.method == 'POST' and form.validate():
-        result = visualize_series(Q1=form.Q1.data,Q2=form.Q2.data,
-                                  Q3=form.Q3.data, Q4=form.Q4.data,Q5=form.Q5.data,Q6=form.Q6.data,
-                                  Q3b=form.Q3b.data,Q4b=form.Q4b.data,Q5b=form.Q5b.data,Q6b=form.Q6b.data,
-                                  Q3c=form.Q3c.data,Q4c=form.Q4b.data,Q5c=form.Q5b.data,Q6c=form.Q6c.data,
-                                  Q7=form.Q7.data,Q8=form.Q8.data,Q11=form.Q11.data)
-        return render_template("sumaries.html", form=form, result=result)
+#IPI ROMPE TODO ACA
+@app.route('/formulary_ask', methods=['GET', 'POST'])
+def formulary_ask():
+    form1 = NumexpForm(request.form)
+    if request.method == 'POST' and form1.validate(): 
+        num = form1.Num_exp.data   
+        inte =  form1.Intervention_switcher.data 
+        session["num"] = num
+        session["inte"] = inte
+        return redirect(url_for("form_selection"))
     else:
-        result = None
-        textInfo = None
-    print(request.method, [field.errors for field in form])
-    return render_template("formulary.html", form=form, result=result,textInfo = textInfo)
+        if "num" in session:
+            return redirect(url_for("logout"))
+        return render_template("formulary_ask.html", form=form1)
+
+@app.route('/form_selection', methods=['GET', 'POST'])
+def form_selection(): 
+    num = session["num"] 
+    inte = session["inte"] 
+    # this is 'cabeza style'. 
+    if inte == 'No':
+        if num == 1:
+            form = formOneTaskNoInt(request.form)
+            if request.method == 'POST' and form.validate():
+                result = visualize_series(numExp = num, intervention = inte,
+                                        Q1a=form.Q1a.data,
+                                        Q1b=form.Q1b.data,# Text titles
+                                        Q2=form.Q2.data,
+                                        Q3=form.Q3.data, 
+                                        Q4=form.Q4.data,
+                                        Q5=form.Q5.data,
+                                        Q6=form.Q6.data,
+                                        Q7=form.Q7.data,
+
+                                        #Second and third task, initialized but unused here
+                                        Q3b=form.Q1a.data,
+                                        Q4b=form.Q1a.data,
+                                        Q5b=form.Q1a.data,
+                                        Q6b=form.Q1a.data,
+                                        Q3c=form.Q1a.data,
+                                        Q4c=form.Q1a.data,
+                                        Q5c=form.Q1a.data,
+                                        Q6c=form.Q1a.data,
+
+                                        # Interventon questions initialized but unused here
+                                        Q8=form.Q1a.data,# if a string do nothing in calculate
+                                        Q9=form.Q1a.data,# if a string do nothing in calculate
+                                        Q10=form.Q1a.data,# if a string do nothing in calculate
+                                        Q11=form.Q1a.data,# if a string do nothing in calculate
+                                        Q12=form.Q1a.data)
+
+                return render_template("sumaries_formOneTaskNoInt.html", form=form, result=result)
+            else:
+                result = None
+                textInfo = None
+                return render_template("formulary_toresponses.html", form=form,textInfo = textInfo)
+        elif num == 2:
+            form = formTwoTaskNoInt(request.form)
+            if request.method == 'POST' and form.validate():
+                result = visualize_series(numExp = num, intervention = inte,
+                                        Q1a=form.Q1a.data,
+                                        Q1b=form.Q1b.data,# Text titles
+                                        Q2=form.Q2.data,
+                                        Q3=form.Q3.data, 
+                                        Q4=form.Q4.data,
+                                        Q5=form.Q5.data,
+                                        Q6=form.Q6.data,
+                                        Q7=form.Q7.data,
+
+                                        #Second and third task
+                                        Q3b=form.Q3b.data,
+                                        Q4b=form.Q4b.data,
+                                        Q5b=form.Q5b.data,
+                                        Q6b=form.Q6b.data,
+                                        Q3c=form.Q1b.data,
+                                        Q4c=form.Q1a.data,
+                                        Q5c=form.Q1a.data,
+                                        Q6c=form.Q1a.data,
+
+                                        # Interventon questions initialized but unused here
+                                        Q8=form.Q1a.data,# if a string do nothing in calculate
+                                        Q9=form.Q1a.data,# if a string do nothing in calculate
+                                        Q10=form.Q1a.data,# if a string do nothing in calculate
+                                        Q11=form.Q1a.data,# if a string do nothing in calculate
+                                        Q12=form.Q1a.data)
+
+                return render_template("sumaries_formTwoTaskNoInt.html", form=form, result=result)
+            else:
+                result = None
+                textInfo = None
+                return render_template("formulary_toresponses.html", form=form,textInfo = textInfo)
+        else:
+            form = formThreeTaskNoInt(request.form)
+            if request.method == 'POST' and form.validate():
+                result = visualize_series(numExp = num, intervention = inte,
+                                        Q1a=form.Q1a.data,
+                                        Q1b=form.Q1b.data,# Text titles
+                                        Q2=form.Q2.data,
+                                        Q3=form.Q3.data, 
+                                        Q4=form.Q4.data,
+                                        Q5=form.Q5.data,
+                                        Q6=form.Q6.data,
+                                        Q7=form.Q7.data,
+
+                                        #Second and third task
+                                        Q3b=form.Q3b.data,
+                                        Q4b=form.Q4b.data,
+                                        Q5b=form.Q5b.data,
+                                        Q6b=form.Q6b.data,
+                                        Q3c=form.Q3c.data,
+                                        Q4c=form.Q4c.data,
+                                        Q5c=form.Q5c.data,
+                                        Q6c=form.Q6c.data,
+
+                                        # Interventon questions initialized but unused here
+                                        Q8=form.Q1a.data,# if a string do nothing in calculate
+                                        Q9=form.Q1a.data,# if a string do nothing in calculate
+                                        Q10=form.Q1a.data,# if a string do nothing in calculate
+                                        Q11=form.Q1a.data,# if a string do nothing in calculate
+                                        Q12=form.Q1a.data)
+
+                return render_template("sumaries_formThreeTaskNoInt.html", form=form, result=result)
+            else:
+                result = None
+                textInfo = None
+                return render_template("formulary_toresponses.html", form=form,textInfo = textInfo)
+    else:
+        if num == 1:
+            form = formOneTaskYesInt(request.form)
+            if request.method == 'POST' and form.validate():
+                result = visualize_series(numExp = num, intervention = inte,
+                                        Q1a=form.Q1a.data,
+                                        Q1b=form.Q1b.data,# Text titles
+                                        Q2=form.Q2.data,
+                                        Q3=form.Q3.data, 
+                                        Q4=form.Q4.data,
+                                        Q5=form.Q5.data,
+                                        Q6=form.Q6.data,
+                                        Q7=form.Q7.data,
+
+                                        #Second and third task, initialized but unused here
+                                        Q3b=form.Q1a.data,
+                                        Q4b=form.Q1a.data,
+                                        Q5b=form.Q1a.data,
+                                        Q6b=form.Q1a.data,
+                                        Q3c=form.Q1a.data,
+                                        Q4c=form.Q1a.data,
+                                        Q5c=form.Q1a.data,
+                                        Q6c=form.Q1a.data,
+
+                                        # Interventon questions 
+                                        Q8=form.Q8.data,
+                                        Q9=form.Q9.data,
+                                        Q10=form.Q10.data,
+                                        Q11=form.Q11.data,
+                                        Q12=form.Q12.data)
+
+                return render_template("sumaries_formOneTaskYesInt.html", form=form, result=result)
+            else:
+                result = None
+                textInfo = None
+                return render_template("formulary_toresponses.html", form=form,textInfo = textInfo)
+        elif num == 2:
+            form = formTwoTaskYesInt(request.form)
+            if request.method == 'POST' and form.validate():
+                result = visualize_series(numExp = num, intervention = inte,
+                                        Q1a=form.Q1a.data,
+                                        Q1b=form.Q1b.data,# Text titles
+                                        Q2=form.Q2.data,
+                                        Q3=form.Q3.data, 
+                                        Q4=form.Q4.data,
+                                        Q5=form.Q5.data,
+                                        Q6=form.Q6.data,
+                                        Q7=form.Q7.data,
+
+                                        #Second and third task, initialized but unused here
+                                        Q3b=form.Q3b.data,
+                                        Q4b=form.Q4b.data,
+                                        Q5b=form.Q5b.data,
+                                        Q6b=form.Q6b.data,
+                                        Q3c=form.Q1b.data,
+                                        Q4c=form.Q1a.data,
+                                        Q5c=form.Q1a.data,
+                                        Q6c=form.Q1a.data,
+
+                                        # Interventon questions 
+                                        Q8=form.Q8.data,
+                                        Q9=form.Q9.data,
+                                        Q10=form.Q10.data,
+                                        Q11=form.Q11.data,
+                                        Q12=form.Q12.data)
+
+                return render_template("sumaries_formTwoTaskYesInt.html", form=form, result=result)
+            else:
+                result = None
+                textInfo = None
+                return render_template("formulary_toresponses.html", form=form,textInfo = textInfo)
+        else:
+            form = formThreeTaskYesInt(request.form) 
+            if request.method == 'POST' and form.validate():
+                result = visualize_series(numExp = num, intervention = inte,
+                                        Q1a=form.Q1a.data,
+                                        Q1b=form.Q1b.data,# Text titles
+                                        Q2=form.Q2.data,
+                                        Q3=form.Q3.data, 
+                                        Q4=form.Q4.data,
+                                        Q5=form.Q5.data,
+                                        Q6=form.Q6.data,
+                                        Q7=form.Q7.data,
+
+                                        #Second and third task, initialized but unused here
+                                        Q3b=form.Q3b.data,
+                                        Q4b=form.Q4b.data,
+                                        Q5b=form.Q5b.data,
+                                        Q6b=form.Q6b.data,
+                                        Q3c=form.Q3c.data,
+                                        Q4c=form.Q4c.data,
+                                        Q5c=form.Q5c.data,
+                                        Q6c=form.Q6c.data,
+
+                                        # Interventon questions 
+                                        Q8=form.Q8.data,
+                                        Q9=form.Q9.data,
+                                        Q10=form.Q10.data,
+                                        Q11=form.Q11.data,
+                                        Q12=form.Q12.data)
+
+                return render_template("sumaries_formThreeTaskYesInt.html", form=form, result=result)
+            else:
+                result = None
+                textInfo = None
+                return render_template("formulary_toresponses.html", form=form,textInfo = textInfo)
+
+
 
 @app.route('/moreinfo')
 def moreinfo():
@@ -60,6 +281,13 @@ def comments():
         return render_template('thanks.html')
 
     return render_template('comments.html')
+
+@app.route('/logout')
+def logout():  
+    session.pop("num",None)
+    session.pop("inte",None)
+    return redirect(url_for('formulary_ask'))
+
 
 if __name__ == '__main__':
     app.run(debug=True)

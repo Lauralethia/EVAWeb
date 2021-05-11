@@ -1,0 +1,259 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">
+        <p class="display-4">Behavior:   {{ form.Q1a.data }} </p>
+
+    </h1>
+    <h1 class="display-4">
+        <p class="lead">Context:   {{ form.Q1b.data }} </p>
+    </h1>
+    <p class="lead">Summary</p>
+    <hr class="my-4">
+    <section class="seccion">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+        <div class="container" id="contact">
+
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        {{ form.Q2.label }}
+                    </span>
+                </div>
+
+                <div class="answer">
+                    {{ dict(form.Q2.choices).get(form.Q2.data) }}
+                </div>
+
+                {{ form.TQ2 }}
+
+            </div>
+            <!--More than one task section-->
+            <!-- one task -->
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        {{ form.Q3.label }}
+                    </span>
+                </div>
+
+                <div class="answer">
+                    {{ dict(form.Q3.choices).get(form.Q3.data) }}
+                </div>
+
+                {{ form.TQ3 }}
+            </div>
+
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        {{ form.Q4.label }}
+                    </span>
+                </div>
+
+                <div class="answer">
+                    {{ dict(form.Q4.choices).get(form.Q4.data) }}
+                </div>
+
+                {{ form.TQ4 }}
+
+            </div>
+
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        {{ form.Q5.label }}
+                    </span>
+                </div>
+
+                <div class="answer">
+                    {{ dict(form.Q5.choices).get(form.Q5.data) }}
+                </div>
+
+                {{ form.TQ5 }}
+
+            </div>
+
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        {{ form.Q6.label }}
+                    </span>
+                </div>
+
+                <div class="answer">
+                    {{ dict(form.Q6.choices).get(form.Q6.data) }}
+                </div>
+
+                {{ form.TQ6 }}
+
+            </div>
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        {{ form.Q7.label }}
+                    </span>
+                </div>
+
+                <div class="answer">
+                    {{ dict(form.Q7.choices).get(form.Q7.data) }}
+                </div>
+
+                {{ form.TQ7 }}
+
+            </div>
+
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        8. Final comment
+                    </span>
+                </div>
+                {{ form.TQF }}
+
+            </div>
+
+            <p class="lead">Second task:   {{ form.TASK2.data }} </p>
+
+            <!-- second task -->
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        {{ form.Q3b.label }}
+                    </span>
+                </div>
+
+                <div class="answer">
+                    {{ dict(form.Q3b.choices).get(form.Q3b.data) }}
+                </div>
+
+                {{ form.TQ3b }}
+
+            </div>
+
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        {{ form.Q4b.label }}
+                    </span>
+                </div>
+
+                <div class="answer">
+                    {{ dict(form.Q4b.choices).get(form.Q4b.data) }}
+                </div>
+
+                {{ form.TQ4b }}
+
+            </div>
+
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        {{ form.Q5b.label }}
+                    </span>
+                </div>
+
+                <div class="answer">
+                    {{ dict(form.Q5b.choices).get(form.Q5b.data) }}
+                </div>
+
+                {{ form.TQ5b }}
+
+            </div>
+
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        {{ form.Q6b.label }}
+                    </span>
+                </div>
+
+                <div class="answer">
+                    {{ dict(form.Q6b.choices).get(form.Q6b.data) }}
+                </div>
+
+                {{ form.TQ6b }}
+
+            </div>
+            <p class="lead">Third task:   {{ form.TASK3.data }} </p>
+
+            <!-- third task -->
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        {{ form.Q3c.label }}
+                    </span>
+                </div>
+
+                <div class="answer">
+                    {{ dict(form.Q3c.choices).get(form.Q3c.data) }}
+                </div>
+
+                {{ form.TQ3c }}
+
+            </div>
+
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        {{ form.Q4c.label }}
+                    </span>
+                </div>
+
+                <div class="answer">
+                    {{ dict(form.Q4c.choices).get(form.Q4c.data) }}
+                </div>
+
+                {{ form.TQ4c }}
+
+            </div>
+
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        {{ form.Q5c.label }}
+                    </span>
+                </div>
+
+                <div class="answer">
+                    {{ dict(form.Q5c.choices).get(form.Q5c.data) }}
+                </div>
+
+                {{ form.TQ5c }}
+
+            </div>
+
+            <div class="question">
+                <div class="title">
+                    <span class="title">
+                        {{ form.Q6c.label }}
+                    </span>
+                </div>
+
+                <div class="answer">
+                    {{ dict(form.Q6c.choices).get(form.Q6c.data) }}
+                </div>
+
+                {{ form.TQ6c }}
+
+            </div>
+
+
+            {% if result != None %}
+            <img src="data:image/png;base64,{{ result }}" class="resize2">
+            {% endif %}
+
+
+
+            <p class="lead">Abreviations</p>
+            <p class="title">CLR = Controlled laboratory research | PNLRA = Partially naturalistic laboratory research approach | NRWRA = Naturalistic real-world research approach | BE = Balance Score</p>
+
+            <p class="title">Q2,Sa: Sample; Q3,TS: Teesting site; Q4,Ta: Task; Q5,St: Stimuli; Q6,M: Measures; Q7,Sk: Stakeholders; Q2.2,Sa: Sample; Q3.2,TS: Teesting site; Q4.2,Ta: Task; Q5.2,St: Stimuli; Q6.2,M: Measures; Q2.3,Sa: Sample; Q3.3,TS: Teesting site; Q4.3,Ta: Task; Q5.3,St: Stimuli; Q6.3,M: Measures</p>
+
+
+
+        </div>
+</div>
+{% endblock %}
