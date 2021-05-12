@@ -4,7 +4,7 @@ def visualize_series(numExp,intervention,
     Q3b,Q4b,Q5b,Q6b,
     Q3c, Q4c,Q5c,Q6c,
     Q7,
-    Q8,Q9,Q10,Q11,Q12 # values from questions, 1 2 3 or 4
+    Q8 # values from questions, 1 2 3 or 4
     ):
 # Code adapted from https://www.pythoncharts.com/matplotlib/radar-charts/
     import matplotlib.pyplot as plt
@@ -31,23 +31,22 @@ def visualize_series(numExp,intervention,
 
     else:
         if numExp == 1:
-          Qtot=[Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10,Q11,Q12]
+          Qtot=[Q2,Q3,Q4,Q5,Q6,Q7,Q8]
           evalRes = ['Q2,Sa','Q3,TS','Q4,Ta', 'Q5,St','Q6,M',
-                     'Q8.I,Sa','Q9.I,IS','Q10.I,Ta', 'Q11.I,St','Q12.I,M',
-                     'Q7,Sk']
+                     'Q7,Sk','Q8.I' ]
 
         elif numExp == 2:
-          Qtot=[Q2,Q3,Q4,Q5,Q6,Q3b,Q4b,Q5b,Q6b,Q7,Q8,Q9,Q10,Q11,Q12]
-          evalRes = ['Q2,Sa','Q3,TS','Q4,Ta', 'Q5,St','Q6,M','Q7,Sk',
+          Qtot=[Q2,Q3,Q4,Q5,Q6,Q3b,Q4b,Q5b,Q6b,Q7,Q8]
+          evalRes = ['Q2,Sa','Q3,TS','Q4,Ta', 'Q5,St','Q6,M',
                     'Q2.2,Sa','Q3.2,TS','Q4.2,Ta', 'Q5.2,St','Q6.2,M',
-                     'Q8.I,Sa','Q9.I,IS','Q10.I,Ta', 'Q11.I,St','Q12.I,M']
+                     'Q7,Sk','Q8.I']
 
         else:
-          Qtot=[Q2,Q3,Q4,Q5,Q6,Q3b,Q4b,Q5b,Q6b,Q3c,Q4c,Q5c,Q6c,Q7,Q8,Q9,Q10,Q11,Q12]
+          Qtot=[Q2,Q3,Q4,Q5,Q6,Q3b,Q4b,Q5b,Q6b,Q3c,Q4c,Q5c,Q6c,Q7,Q8]
           evalRes = ['Q2,Sa','Q3,TS','Q4,Ta', 'Q5,St','Q6,M',
                     'Q2.2,Sa','Q3.2,TS','Q4.2,Ta', 'Q5.2,St','Q6.2,M',
                     'Q2.3,Sa','Q3.3,TS','Q4.3,Ta', 'Q5.3,St','Q6.3,M',
-                     'Q7,Sk','Q8.I,Sa','Q9.I,IS','Q10.I,Ta', 'Q11.I,St','Q12.I,M']
+                     'Q7,Sk','Q8.I']
     
     FA_val = [val for is_FA, val in zip([x == 1 for x in Qtot ], evalRes) if is_FA]
     FB_val = [val for is_FB, val in zip([x == 2 for x in Qtot ], evalRes) if is_FB]
@@ -171,8 +170,4 @@ if __name__ == '__main__':
       Q6c=4,
       Q7=1, # Stakeholders
       # Interventon questions 
-      Q8=1,
-      Q9=1,
-      Q10=4,
-      Q11=4,
-      Q12=4)
+      Q8=1)

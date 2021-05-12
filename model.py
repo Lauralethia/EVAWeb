@@ -2,7 +2,7 @@ from wtforms import Form, RadioField, validators,TextField, TextAreaField, Submi
 
 def indivQ(N):# Define the task related questions
         # TASK Q2
-        TASK2 = TextField(label='If you have '+str(N)+' tasks, would you like to titulate it',default='No '+str(N)+' task')
+        TASK2 = TextField(label='Would you like to give your '+str(N)+' task a name?',default='No '+str(N)+' task')
 
         Q3b = RadioField(
             label='Task '+str(N)+'.3 If you have '+str(N)+' tasks, how its testing site reflects the context (R1a/b)?',
@@ -53,9 +53,9 @@ def indivQ(N):# Define the task related questions
 
 def interventionQ():# Define the intervention questions
     # INTERTITLE,Q8,TQ8,Q9,TQ9,Q10,TQ10,Q11,TQ11,Q12,TQ12 = interventionQ()
-    INTERTITLE = TextField(label='Would you like to titulate your intervention',default='No intervention title')   
+    INTERTITLE = TextField(label='Would you like to give your intervention a name?',default='No intervention title')   
     Q8 = RadioField(
-        label='9. Related to intervention component, please indicate where your intervention fits in best.',
+        label='8. Related to intervention component, please indicate where your intervention fits in best.',
         coerce=int,
         choices=[(1,'CLR [Children play a game on a laptop/ tablet at the lab/ clinic supervised by experimenters and/or parents]'),
                  (2,'PNLRA [Children play a game on a laptop/ tablet at home supervised by parents]'),
@@ -66,47 +66,8 @@ def interventionQ():# Define the intervention questions
     TQ8 = TextField(
         label='Please justify your answer below.',
         default='No comment')
-    Q9 = RadioField(
-        label='10. how your intervention testing site reflects the context (R1a/b)?',
-        coerce=int,
-        choices=[(1,'CLR [Lab/ clinical testing room]'),
-                 (2,'PNLRA [Lab set up to look like a classroom]'),
-                 (3,'NRWRA [Classroom with little/no experimenter presence and interference into teaching activities]'),
-                 (4,'No intervention')],
-        default=4,
-        validators=[validators.InputRequired()])   
-    TQ9 = TextField(label='Please justify your answer below.', default='No comment')
-    Q10 = RadioField(
-        label='11. how your intervention task/s reflects that context?',
-        coerce=int,
-        choices=[(1,'CLR [Working memory task for shapes presented on a screen]'),
-                 (2,'PNLRA [Test of memory after viewing a movie]'),
-                 (3,'NRWRA [Test of memory of an interaction after a prolonged delay that involved other activities]'),
-                 (4,'No intervention')],
-        default=4,
-        validators=[validators.InputRequired()])
-    TQ10 = TextField(label='Please justify your answer below.', default='No comment')
-    Q11 = RadioField(
-        label='12. how your intervention stimuli reflect that context?',
-        coerce=int,
-        choices=[(1,'CLR [Static stimuli, typical for perceptual/cognitive studies, like face images]'),
-                 (2,'PNLRA [Dynamic stimuli, like dynamic faces on video] '),
-                 (3,'NRWRA [Fully naturalistically sampled stimuli: people during social interaction]'),
-                 (4,'No intervention task')],
-        default=4,
-        validators=[validators.InputRequired()])
-    TQ11 = TextField(label='Please justify your answer below.',default='No comment')
-    Q12 = RadioField(
-        label='13. how your intervention measures reflect that behavior?',
-        coerce=int,
-        choices=[(1,'CLR [Well-researched brain correlates of a specific cognitive process in typical conditions]'),
-                 (2,'PNLRA [Canonical brain correlates in non-traditional laboratory settings and/or using more portable brain imaging tools]'),
-                 (3,'NRWRA [Portable brain imaging tools in external environments to test for canonical brain correlates of cognitive processes]'),
-                 (4,'No intervention')],
-        default=4,
-        validators=[validators.InputRequired()])
-    TQ12 = TextField(label='Please justify your answer below.', default='No comment')
-    return (INTERTITLE,Q8,TQ8,Q9,TQ9,Q10,TQ10,Q11,TQ11,Q12,TQ12)
+    
+    return (INTERTITLE,Q8,TQ8)
 
 class NumexpForm(Form):
     Num_exp = IntegerField(
@@ -117,7 +78,7 @@ class NumexpForm(Form):
     Intervention_switcher = RadioField(
         '2) Is there an intervention component?',
         [validators.DataRequired()],
-        choices=[('Yes', 'Yes, I have an intervention component'), ('No', 'No, I do not have an Intervention')], default='No' )
+        choices=[('Yes', 'Yes, I have an intervention component'), ('No', 'No, I do not have an intervention')], default='No' )
 
 class formOneTaskNoInt(Form):
     Q1a = TextField(
@@ -193,9 +154,7 @@ class formOneTaskNoInt(Form):
         label='Please justify your answer below.',
         default='No comment')
  
-    TQF = TextAreaField(
-        label='8. Please indicate in which category (CLR, PNLRA, and NRWRA) you see your research fits best and state the reasons.',
-        default='No comment')
+
         #########################################################################################################################################################
        
 class formTwoTaskNoInt(Form):
@@ -272,9 +231,6 @@ class formTwoTaskNoInt(Form):
         label='Please justify your answer below.',
         default='No comment')
  
-    TQF = TextAreaField(
-        label='8. Please indicate in which category (CLR, PNLRA, and NRWRA) you see your research fits best and state the reasons.',
-        default='No comment')
     TASK2,Q3b,TQ3b,Q4b,TQ4b,Q5b,TQ5b,Q6b,TQ6b =  indivQ(2)
         
         #########################################################################################################################################################
@@ -434,11 +390,8 @@ class formOneTaskYesInt(Form):
     TQ7 = TextField(
         label='Please justify your answer below.',
         default='No comment')
- 
-    TQF = TextAreaField(
-        label='8. Please indicate in which category (CLR, PNLRA, and NRWRA) you see your research fits best and state the reasons.',
-        default='No comment')
-    INTERTITLE,Q8,TQ8,Q9,TQ9,Q10,TQ10,Q11,TQ11,Q12,TQ12 = interventionQ()
+
+    INTERTITLE,Q8,TQ8 = interventionQ()
         #########################################################################################################################################################
        
 class formTwoTaskYesInt(Form):
@@ -514,11 +467,8 @@ class formTwoTaskYesInt(Form):
     TQ7 = TextField(
         label='Please justify your answer below.',
         default='No comment')
- 
-    TQF = TextAreaField(
-        label='8. Please indicate in which category (CLR, PNLRA, and NRWRA) you see your research fits best and state the reasons.',
-        default='No comment')
-    INTERTITLE,Q8,TQ8,Q9,TQ9,Q10,TQ10,Q11,TQ11,Q12,TQ12 = interventionQ()
+
+    INTERTITLE,Q8,TQ8 = interventionQ()
     TASK2,Q3b,TQ3b,Q4b,TQ4b,Q5b,TQ5b,Q6b,TQ6b =  indivQ(2)
         
         #########################################################################################################################################################
@@ -597,10 +547,8 @@ class formThreeTaskYesInt(Form):
         label='Please justify your answer below.',
         default='No comment')
  
-    TQF = TextAreaField(
-        label='8. Please indicate in which category (CLR, PNLRA, and NRWRA) you see your research fits best and state the reasons.',
-        default='No comment')
-    INTERTITLE,Q8,TQ8,Q9,TQ9,Q10,TQ10,Q11,TQ11,Q12,TQ12 = interventionQ()
+
+    INTERTITLE,Q8,TQ8 = interventionQ()
     TASK2,Q3b,TQ3b,Q4b,TQ4b,Q5b,TQ5b,Q6b,TQ6b =  indivQ(2)
     TASK3,Q3c,TQ3c,Q4c,TQ4c,Q5c,TQ5c,Q6c,TQ6c =  indivQ(3)
    

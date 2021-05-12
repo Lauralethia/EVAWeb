@@ -57,11 +57,7 @@ def form_selection():
                                         Q6c=form.Q1a.data,
 
                                         # Interventon questions initialized but unused here
-                                        Q8=form.Q1a.data,# if a string do nothing in calculate
-                                        Q9=form.Q1a.data,# if a string do nothing in calculate
-                                        Q10=form.Q1a.data,# if a string do nothing in calculate
-                                        Q11=form.Q1a.data,# if a string do nothing in calculate
-                                        Q12=form.Q1a.data)
+                                        Q8=form.Q1a.data)
 
                 return render_template("sumaries_formOneTaskNoInt.html", form=form, result=result)
             else:
@@ -92,11 +88,7 @@ def form_selection():
                                         Q6c=form.Q1a.data,
 
                                         # Interventon questions initialized but unused here
-                                        Q8=form.Q1a.data,# if a string do nothing in calculate
-                                        Q9=form.Q1a.data,# if a string do nothing in calculate
-                                        Q10=form.Q1a.data,# if a string do nothing in calculate
-                                        Q11=form.Q1a.data,# if a string do nothing in calculate
-                                        Q12=form.Q1a.data)
+                                        Q8=form.Q1a.data)
 
                 return render_template("sumaries_formTwoTaskNoInt.html", form=form, result=result)
             else:
@@ -127,11 +119,7 @@ def form_selection():
                                         Q6c=form.Q6c.data,
 
                                         # Interventon questions initialized but unused here
-                                        Q8=form.Q1a.data,# if a string do nothing in calculate
-                                        Q9=form.Q1a.data,# if a string do nothing in calculate
-                                        Q10=form.Q1a.data,# if a string do nothing in calculate
-                                        Q11=form.Q1a.data,# if a string do nothing in calculate
-                                        Q12=form.Q1a.data)
+                                        Q8=form.Q1a.data)
 
                 return render_template("sumaries_formThreeTaskNoInt.html", form=form, result=result)
             else:
@@ -163,11 +151,7 @@ def form_selection():
                                         Q6c=form.Q1a.data,
 
                                         # Interventon questions 
-                                        Q8=form.Q8.data,
-                                        Q9=form.Q9.data,
-                                        Q10=form.Q10.data,
-                                        Q11=form.Q11.data,
-                                        Q12=form.Q12.data)
+                                        Q8=form.Q8.data)
 
                 return render_template("sumaries_formOneTaskYesInt.html", form=form, result=result)
             else:
@@ -198,11 +182,7 @@ def form_selection():
                                         Q6c=form.Q1a.data,
 
                                         # Interventon questions 
-                                        Q8=form.Q8.data,
-                                        Q9=form.Q9.data,
-                                        Q10=form.Q10.data,
-                                        Q11=form.Q11.data,
-                                        Q12=form.Q12.data)
+                                        Q8=form.Q8.data)
 
                 return render_template("sumaries_formTwoTaskYesInt.html", form=form, result=result)
             else:
