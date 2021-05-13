@@ -213,12 +213,7 @@ def form_selection():
                                         Q6c=form.Q6c.data,
 
                                         # Interventon questions 
-                                        Q8=form.Q8.data,
-                                        Q9=form.Q9.data,
-                                        Q10=form.Q10.data,
-                                        Q11=form.Q11.data,
-                                        Q12=form.Q12.data)
-
+                                        Q8=form.Q8.data)
                 return render_template("sumaries_formThreeTaskYesInt.html", form=form, result=result)
             else:
                 result = None
