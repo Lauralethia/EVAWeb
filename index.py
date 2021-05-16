@@ -12,7 +12,6 @@ app.secret_key = 'EVATool'
 def home():
     return render_template('home.html')
 
-#IPI ROMPE TODO ACA
 @app.route('/formulary_ask', methods=['GET', 'POST'])
 def formulary_ask():
     form1 = NumexpForm(request.form)
