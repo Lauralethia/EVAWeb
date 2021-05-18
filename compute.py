@@ -70,16 +70,16 @@ def visualize_series(numExp,intervention,
     textstr =     'CLR = ' + str(round(values[0]*100,1)) + \
               '% | PNLRA = ' + str(round(values[1]*100,1) )+ \
               '% | NRWRA = ' + str(round(values[2]*100,1)) + \
-              '% | BE = ' + str(round(TotScore,2))
+              '% | BS = ' + str(round(TotScore,2))
 
     
     legenda = '\n'.join((
-    r'CLR: '+';'.join(FA_val),
-    r'PNLRA: ' +';'.join(FB_val) ,
-    r'NRWRA: ' +';'.join(FC_val)))
+    r'CLR: '+'; '.join(FA_val),
+    r'PNLRA: ' +'; '.join(FB_val) ,
+    r'NRWRA: ' +'; '.join(FC_val)))
     #legenda = '\n'.join((
     #r'CLR = Controlled laboratory research | PNLRA = Partially naturalistic laboratory research approach',
-    #r' NRWRA = Naturalistic real-world research approach | BE = Balance Score'))
+    #r' NRWRA = Naturalistic real-world research approach | BS = Balance Score'))
 
     num_vars = len(labels)
     # Split the circle into even parts and save the angles
