@@ -42,11 +42,11 @@ def visualize_series(numExp,intervention,
         linea2 = r"$\bf{PNLRA:}$" +', '.join(FB_val) 
         linea3 = r"$\bf{NRWRA:}$" +', '.join(FC_val)
         
-        if len(FA_val) >=6:
+        if len(FA_val) >6:
             linea1 =  '\n'.join( (r"$\bf{CLR:}$" +','.join(FA_val[:6]),','.join(FA_val[6:])))
-        if len(FB_val)  >=6:
+        if len(FB_val)  >6:
             linea2 =  '\n'.join( (r"$\bf{PNLRA:}$" +','.join(FB_val[:6]),','.join(FB_val[6:])))
-        if len(FC_val) >=6:  
+        if len(FC_val) >6:  
             linea3 =  '\n'.join( (r"$\bf{NRWRA:}$" +','.join(FC_val[:6]),','.join(FC_val[6:])))
         
         if len(FA_val) ==0:
