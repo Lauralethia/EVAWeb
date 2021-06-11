@@ -57,7 +57,6 @@ def form_selection():
 
                                         # Interventon questions initialized but unused here
                                         Q8=form.Q1a.data)
-
                 return render_template("sumaries_formOneTaskNoInt.html", form=form, result=result)
             else:
                 result = None
@@ -66,6 +65,8 @@ def form_selection():
         elif num == 2:
             form = formTwoTaskNoInt(request.form)
             if request.method == 'POST' and form.validate():
+                print(form.Q7.data)
+
                 result = visualize_series(numExp = num, intervention = inte,
                                         Q1a=form.Q1a.data,
                                         Q1b=form.Q1b.data,# Text titles
@@ -75,7 +76,6 @@ def form_selection():
                                         Q4=form.Q4.data,
                                         Q5=form.Q5.data,
                                         Q6=form.Q6.data,
-
                                         Q7=form.Q7.data,
 
                                         #Second and third task

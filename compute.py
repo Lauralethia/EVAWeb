@@ -1,10 +1,9 @@
 def visualize_series(numExp,intervention,
     Q1a,Q1b,# Text titles
     Q2,
-    Q3,Q4,Q5,Q6,
+    Q3,Q4,Q5,Q6,Q7,# Q7 stakeholders
     Q3b,Q4b,Q5b,Q6b,
     Q3c,Q4c,Q5c,Q6c,
-    Q7,
     Q8 # values from questions, 1 2 3 or 4
     ):
     # Code adapted from https://www.pythoncharts.com/matplotlib/radar-charts/
@@ -18,13 +17,13 @@ def visualize_series(numExp,intervention,
 
     if numExp == 2:
       Qtot = Qtot[:-1] + [Q3b,Q4b,Q5b,Q6b,Q7]
-      evalRes = evalRes + ['2.TS','2.Task', '2.Stimuli','2.Measures',
-                'Stakeholders']
+      evalRes = evalRes[:-1] + ['2.TS','2.Task', '2.Stimuli','2.Measures','Stakeholders']
+
     if numExp == 3:
       Qtot = Qtot[:-1]+[Q3b,Q4b,Q5b,Q6b,Q3c,Q4c,Q5c,Q6c,Q7]
-      evalRes = evalRes + ['2.TS','2.Task', '2.Stimuli','2.Measures',
-                '3.TS','3.Task', '3.Stimuli','3.Measures',
-                'Stakeholders']
+      evalRes = evalRes[:-1] + ['2.TS','2.Task', '2.Stimuli','2.Measures',
+                '3.TS','3.Task', '3.Stimuli','3.Measures','Stakeholders']
+
     if intervention == 'Yes':
       Qtot = Qtot + [Q8]
       evalRes = evalRes + ['Intervention']
@@ -42,18 +41,18 @@ def visualize_series(numExp,intervention,
         linea2 = r"$\bf{PNLRA:}$" +', '.join(FB_val) 
         linea3 = r"$\bf{NRWRA:}$" +', '.join(FC_val)
         
-        if len(FA_val) >6:
+        if len(FA_val)>6:
             linea1 =  '\n'.join( (r"$\bf{CLR:}$" +','.join(FA_val[:6]),','.join(FA_val[6:])))
-        if len(FB_val)  >6:
+        if len(FB_val)>6:
             linea2 =  '\n'.join( (r"$\bf{PNLRA:}$" +','.join(FB_val[:6]),','.join(FB_val[6:])))
-        if len(FC_val) >6:  
+        if len(FC_val)>6:  
             linea3 =  '\n'.join( (r"$\bf{NRWRA:}$" +','.join(FC_val[:6]),','.join(FC_val[6:])))
         
-        if len(FA_val) ==0:
+        if len(FA_val)==0:
             linea1 =  ' '.join( (r"$\bf{CLR:}$" ,'none'))
-        if len(FB_val)  ==0:
+        if len(FB_val)==0:
             linea2 =  ' '.join( (r"$\bf{PNLRA:}$" ,'none'))
-        if len(FC_val) ==0:  
+        if len(FC_val)==0:  
             linea3 =  ' '.join( (r"$\bf{NRWRA:}$" ,'none'))
 
         legenda = '\n'.join((
@@ -168,6 +167,8 @@ if __name__ == '__main__':
       Q4=1, # Task
       Q5=1, # Stimuli
       Q6=1, # Measures
+      Q7=1, # Stakeholders
+
       Q3b=2,
       Q4b=2,
       Q5b=3,
@@ -176,6 +177,5 @@ if __name__ == '__main__':
       Q4c=3,
       Q5c=4,
       Q6c=4,
-      Q7=1, # Stakeholders
       # Interventon questions 
       Q8=1)
