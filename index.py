@@ -69,11 +69,13 @@ def form_selection():
                 result = visualize_series(numExp = num, intervention = inte,
                                         Q1a=form.Q1a.data,
                                         Q1b=form.Q1b.data,# Text titles
+                                        
                                         Q2=form.Q2.data,
                                         Q3=form.Q3.data, 
                                         Q4=form.Q4.data,
                                         Q5=form.Q5.data,
                                         Q6=form.Q6.data,
+
                                         Q7=form.Q7.data,
 
                                         #Second and third task
@@ -81,6 +83,7 @@ def form_selection():
                                         Q4b=form.Q4b.data,
                                         Q5b=form.Q5b.data,
                                         Q6b=form.Q6b.data,
+
                                         Q3c=form.Q1b.data,
                                         Q4c=form.Q1a.data,
                                         Q5c=form.Q1a.data,
