@@ -147,9 +147,10 @@
 
 
         </div>
-          <a href="https://selectpdf.com/export-to-pdf/?" onclick="if(!this.urlAdded)href+='&url='+encodeURIComponent(location.href);this.urlAdded=1"><img src="https://selectpdf.com/buttons/save-as-pdf1.gif"/></a>
 
-
+          <div class="container" id="contact">
+            <button  onclick="window.print()" type="submit" name="submit" id="contact-submit" data-submit="...Sending">Print this page</button>
+          </div>
   
 </div>
 {% endblock %}
