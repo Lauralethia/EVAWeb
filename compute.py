@@ -97,6 +97,7 @@ def visualize_series(numExp,intervention,
     angles += angles[:1]
 
     fig, ax = plt.subplots(figsize=(7,7), subplot_kw=dict(polar=True))
+
     fig.suptitle('Behavior: ' + Q1a, fontsize=14, fontweight='bold', color='#4A4A4A')
 
     # Draw the outline of our data.
@@ -139,7 +140,12 @@ def visualize_series(numExp,intervention,
 
     # Add chart a title and summary.
     fig.subplots_adjust(top=0.85)
-    ax.set_title('Context: ' + Q1b, y=1.08,color = '#6B6B6B')
+    def chunkstring(string, length):
+      return (string[0+i:length+i] for i in range(0, len(string), length))
+    Context_subtitle = list(chunkstring('Context: ' + Q1b, 45))
+    Context_subtitle = '\n'.join(Context_subtitle)
+    
+    ax.set_title(Context_subtitle, y=1.08,color = '#6B6B6B')
 
     # place a text box in upper left in axes coords
     # these are matplotlib.patch.Patch properties
