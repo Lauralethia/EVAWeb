@@ -34,7 +34,7 @@ def indivQ(N):# Define the task related questions
             choices=[(1,'CLR [Static stimuli, typical for perceptual/cognitive studies, like face images]'),
                     (2,'PNLRA [Dynamic stimuli, like dynamic faces on video] '),
                     (3,'NRWRA [Fully naturalistically sampled stimuli: people during social interaction]'),
-                    (4,'No '+str(N)+' task')],
+                    (4,'No '+str(N)+' stimuli')],
             default=4,
             validators=[validators.InputRequired()])
         TQ5b = TextAreaField(label='Please justify your answer below.',default='No comment')
@@ -178,7 +178,8 @@ class formTwoTaskNoInt(Form):
         validators=[validators.InputRequired()])
     TQ2 = TextAreaField(label='Please justify your answer below.', default='No comment')
     # TASK Q1
-    TASK1 = TextField(label='Would you like to titulate your task',default='No title')
+    TASK1 = TextField(label='Would you like to give your firts task a name?',default='No title') 
+
     Q3 = RadioField(
         label='3. ...how your testing site reflects that context?',
         coerce=int,
@@ -256,7 +257,7 @@ class formThreeTaskNoInt(Form):
         validators=[validators.InputRequired()])
     TQ2 = TextAreaField(label='Please justify your answer below.', default='No comment')
     # TASK Q1
-    TASK1 = TextField(label='Would you like to titulate your task',default='No title')
+    TASK1 = TextField(label='Would you like to give your firts task a name?',default='No title') 
     Q3 = RadioField(
         label='3. ...how your testing site reflects that context?',
         coerce=int,
@@ -414,7 +415,7 @@ class formTwoTaskYesInt(Form):
         validators=[validators.InputRequired()])
     TQ2 = TextAreaField(label='Please justify your answer below.', default='No comment')
     # TASK Q1
-    TASK1 = TextField(label='Would you like to titulate your task',default='No title')
+    TASK1 = TextField(label='Would you like to give your firts task a name?',default='No title') 
     Q3 = RadioField(
         label='3. ...how your testing site reflects that context?',
         coerce=int,
@@ -493,7 +494,7 @@ class formThreeTaskYesInt(Form):
         validators=[validators.InputRequired()])
     TQ2 = TextField(label='Please justify your answer below.', default='No comment')
     # TASK Q1
-    TASK1 = TextField(label='Would you like to titulate your task',default='No title')
+    TASK1 = TextField(label='Would you like to give your firts task a name?',default='No title') 
     Q3 = RadioField(
         label='3. ...how your testing site reflects that context?',
         coerce=int,
