@@ -5,4 +5,4 @@ Flask web development for MARC tool
 
 Preprint: https://psyarxiv.com/qb9tz/
 
-Web: https://evaform-git.herokuapp.com/
+Web: https://marcform-git.herokuapp.com/
